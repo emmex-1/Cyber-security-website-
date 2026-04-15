@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
-import heroImage from "/images/byte.jpeg";
+import heroImage from "/images/hero-home.jpg";
 import timsImage from "/images/office.png";
 import timImage from "/images/laps.png";
 import byteImage from "/images/byt.jpeg";

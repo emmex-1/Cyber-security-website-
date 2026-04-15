@@ -9,7 +9,7 @@ import {
 import Layout from "@/components/Layout";
 import { LucideIcon } from "lucide-react";
 
-import heroImage from "/images/byte.jpeg";
+import heroImage from "/images/office.png";
 
 /* ─── Fade-up variant ─────────────────────────────────────────────── */
 const fadeUp = {

@@ -8,7 +8,7 @@ import {
   Star, Zap, BookOpen, GraduationCap, Bell, Play,
 } from "lucide-react";
 import Layout from "@/components/Layout";
-import heroImage from "/images/byte.jpeg";
+import heroImage from "/images/laps.png";
 
 /* ══════════════════════════════════════════════════════════════════════════
    COUNTDOWN HOOK
@@ -361,8 +361,7 @@ const Training = () => {
           <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden min-h-[260px] sm:min-h-[340px] lg:min-h-[480px]">
             <img src={heroImage} alt="Training" className="absolute inset-0 w-full h-full object-cover object-center" />
             <div className="absolute inset-0 bg-black/80" />
-            <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
-              style={{ backgroundImage: "repeating-linear-gradient(45deg,rgba(255,255,255,0.5) 0px,rgba(255,255,255,0.5) 1px,transparent 1px,transparent 60px)" }} />
+            <div className="absolute inset-0 pointer-events-none opacity-[0.06]"/>
 
             <div className="relative z-10 flex flex-col justify-end min-h-[260px] sm:min-h-[340px] lg:min-h-[480px] px-6 sm:px-10 lg:px-16 pb-10 sm:pb-14 pt-20 sm:pt-28">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>

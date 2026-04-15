@@ -73,7 +73,7 @@ const heroSlides = [
     accentSecond: true,
     sub: "Customised training programs for organisations, government agencies, and universities. On-site, virtual, or blended delivery.",
     cta:  { label: "Get Enterprise Quote", href: "/contact" },
-    cta2: { label: "Learn More",           href: "/about"   },
+    cta2: { label: "Learn More",           href: "/services"   },
     overlay: "from-black/90 via-black/70 to-black/30",
   },
 ];

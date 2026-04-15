@@ -5,8 +5,8 @@ import { Lock, Cloud, Shield, Database, Cpu } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "Before BYTITUDE I had zero security experience. Six months later I passed the CEH and landed a junior analyst role at a fintech firm. The lab environments are unlike anything I'd seen in other online platforms — it feels like a real SOC.",
-    name: "Adaeze Okonkwo",
+      " Their services are so professional and focused on satisfying their customers.",
+    name: "Rodiat",
     jobTitle: "Security Analyst",
     location: "Lagos, Nigeria",
     track: "CYBERSECURITY — CEH TRACK",
@@ -15,9 +15,9 @@ const testimonials = [
   },
   {
     quote:
-      "The Cloud Security AWS course gave me the confidence to sit and pass the AWS Security Specialty exam on my first attempt.",
-    name: "Emeka Nwosu",
-    jobTitle: "Cloud Security Engineer",
+      " BYTITUDE keep to their promises and they provide excellent services. I will patronize them over and over again. ",
+    name: "Sesan",
+    jobTitle: "Security Engineer",
     location: "Abuja, Nigeria",
     track: "CLOUD COMPUTING — AWS TRACK",
     trackIcon: Cloud,
@@ -25,9 +25,9 @@ const testimonials = [
   },
   {
     quote:
-      "I switched from banking to cybersecurity after completing the SOC Analyst program. I now work at a top-tier IT security firm.",
-    name: "Chioma Eze",
-    jobTitle: "SOC Analyst",
+      " BYTITUDE is one of a kind and they definitely know how to keep organizations data and assets secure .",
+    name: "Oladapo",
+    jobTitle: "Security Analyst",
     location: "Port Harcourt, Nigeria",
     track: "CYBERSECURITY — SOC TRACK",
     trackIcon: Shield,
@@ -82,7 +82,7 @@ const TestimonialsSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + ITEMS_PER_VIEW) % total);
-    }, 5000);
+    }, 9000);
 
     return () => clearInterval(interval);
   }, [total]);

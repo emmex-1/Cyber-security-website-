@@ -33,10 +33,9 @@ interface Course {
   duration:       string;
   hours:          number;
   moduleCount:    number;
-  price:          string;
   color:          string;
   bg:             string;
-  image:          string;   // background image for card
+  image:          string;
   rating:         number;
   students:       string;
   overview:       string;
@@ -59,11 +58,9 @@ const allCourses: Course[] = [
     duration: "4–6 weeks",
     hours: 40,
     moduleCount: 12,
-    price: "From $299",
     color: "#1d4ed8",
     bg: "#eff6ff",
     image: "/images/byte.jpeg",
-    // emoji: "🔐",
     rating: 4.9,
     students: "1,200+",
     overview: "A comprehensive introduction to cybersecurity concepts designed for absolute beginners. You'll learn the fundamentals of networking, encryption, and security principles that underpin every specialist track.",
@@ -87,11 +84,9 @@ const allCourses: Course[] = [
     duration: "6–8 weeks",
     hours: 60,
     moduleCount: 16,
-    price: "From $499",
     color: "#4f46e5",
     bg: "#eef2ff",
     image: "/images/byt.jpeg",
-    // emoji: "⚔️",
     rating: 4.9,
     students: "2,400+",
     overview: "Master offensive security techniques used by real-world ethical hackers. This course prepares you for the EC-Council Certified Ethical Hacker exam while giving you practical lab experience with Metasploit, Nmap, and real exploitation scenarios.",
@@ -117,11 +112,9 @@ const allCourses: Course[] = [
     duration: "4–5 weeks",
     hours: 35,
     moduleCount: 10,
-    price: "From $349",
     color: "#4f46e5",
     bg: "#f0fdfa",
     image: "/images/office.png",
-    // emoji: "🛡️",
     rating: 4.8,
     students: "980+",
     overview: "Learn to monitor, detect, and respond to security incidents from inside a Security Operations Centre. You'll work with real SIEM tools like Splunk, analyze threat intelligence feeds, and build playbooks for incident response.",
@@ -145,11 +138,9 @@ const allCourses: Course[] = [
     duration: "5–6 weeks",
     hours: 45,
     moduleCount: 14,
-    price: "From $399",
     color: "#4f46e5",
     bg: "#fef2f2",
     image: "/images/hero-home.jpg",
-    // emoji: "🏅",
     rating: 4.7,
     students: "3,100+",
     overview: "CompTIA Security+ is the world's most widely adopted entry-level cybersecurity certification. This course follows the SY0-701 exam objectives and combines video content, flashcards, and exam simulation to maximise your pass rate.",
@@ -173,11 +164,9 @@ const allCourses: Course[] = [
     duration: "5–7 weeks",
     hours: 50,
     moduleCount: 13,
-    price: "From $449",
     color: "#4f46e5",
     bg: "#f5f3ff",
     image: "/images/byt.jpeg",
-    // emoji: "☁️",
     rating: 4.8,
     students: "1,650+",
     overview: "Go from cloud beginner to certified cloud security architect. Learn how to deploy, monitor, and lock down AWS infrastructure with IAM, GuardDuty, CloudTrail, and modern DevSecOps pipelines — then pass the AWS Security Specialty exam.",
@@ -201,11 +190,9 @@ const allCourses: Course[] = [
     duration: "8–10 weeks",
     hours: 70,
     moduleCount: 18,
-    price: "From $699",
     color: "#4f46e5",
     bg: "#fef2f2",
     image: "/images/laps.png",
-    // emoji: "🎯",
     rating: 4.9,
     students: "620+",
     overview: "Advanced offensive security for seasoned practitioners. Learn adversary simulation, C2 framework operations, Active Directory attacks, and covert operation techniques used by real nation-state actors.",
@@ -229,11 +216,9 @@ const allCourses: Course[] = [
     duration: "6–8 weeks",
     hours: 55,
     moduleCount: 15,
-    price: "From $449",
     color: "#4f46e5",
     bg: "#f0fdfa",
     image: "/images/byte.jpeg",
-    // emoji: "📊",
     rating: 4.8,
     students: "890+",
     overview: "Apply machine learning and data science to real cybersecurity problems. Build anomaly detection models, automate threat intelligence with Python, and create security dashboards — while earning IBM and Google data certifications.",
@@ -257,11 +242,9 @@ const allCourses: Course[] = [
     duration: "4–5 weeks",
     hours: 38,
     moduleCount: 11,
-    price: "From $299",
     color: "#4f46e5",
     bg: "#f5f3ff",
     image: "/images/byt.jpeg",
-    // emoji: "🌐",
     rating: 4.7,
     students: "2,200+",
     overview: "Master the networking fundamentals that underpin every IT role. This course prepares you for CompTIA Network+ N10-009 with hands-on labs covering routing, switching, wireless security, and network troubleshooting.",
@@ -285,11 +268,9 @@ const allCourses: Course[] = [
     duration: "10–12 weeks",
     hours: 80,
     moduleCount: 20,
-    price: "From $799",
     color: "#4f46e5",
     bg: "#eff6ff",
     image: "/images/office.png",
-    // emoji: "🔒",
     rating: 4.9,
     students: "540+",
     overview: "CISSP is the world's most prestigious cybersecurity certification. This advanced program covers all 8 CISSP domains — from security & risk management to software development security — with a focus on managerial and architectural thinking.",
@@ -315,7 +296,7 @@ const levelColors: Record<string, string> = {
   Advanced:     "bg-red-100 text-red-800",
 };
 
-/* ─── Course Card — background image style ────────────────────────── */
+/* ─── Course Card — no price ──────────────────────────────────────── */
 const CourseCard = ({ course, i, onExpand }: { course: Course; i: number; onExpand: (id: string) => void }) => (
   <motion.div
     custom={i}
@@ -325,17 +306,15 @@ const CourseCard = ({ course, i, onExpand }: { course: Course; i: number; onExpa
     variants={fadeUp}
     className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group"
   >
-    {/* Top — real background image with dark scrim */}
+    {/* Top — background image */}
     <div className="relative h-48 overflow-hidden">
       <img
         src={course.image}
         alt={course.title}
         className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
       />
-      {/* Dark scrim so text is always readable */}
       <div className="absolute inset-0 bg-black/60" />
 
-      {/* Tag badge */}
       {course.tag && (
         <div className="absolute top-4 left-4 z-10">
           <span
@@ -347,12 +326,6 @@ const CourseCard = ({ course, i, onExpand }: { course: Course; i: number; onExpa
         </div>
       )}
 
-      {/* Emoji — decorative top-right
-      <div className="absolute top-4 right-4 text-3xl select-none z-10 opacity-80 group-hover:scale-110 transition-transform duration-300">
-        {course.emoji}
-      </div> */}
-
-      {/* Bottom strip — level badge + rating */}
       <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between px-5 pb-4">
         <span
           className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${levelColors[course.level]}`}
@@ -407,25 +380,23 @@ const CourseCard = ({ course, i, onExpand }: { course: Course; i: number; onExpa
         ))}
       </div>
 
-      <div className="flex items-center justify-between pt-4 border-t border-gray-50">
-        <span className="text-[#0a0f1e] font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>{course.price}</span>
-        <div className="flex items-center gap-2">
+      {/* Footer — no price, just actions */}
+      <div className="flex items-center justify-end gap-2 pt-4 border-t border-gray-50">
+        <button
+          onClick={() => onExpand(course.id)}
+          className="text-xs font-bold uppercase tracking-widest border border-gray-200 rounded-full px-3 py-1.5 hover:border-gray-400 transition-colors cursor-pointer bg-white"
+          style={{ fontFamily: "'DM Sans', sans-serif", color: "#374151" }}
+        >
+          Details
+        </button>
+        <Link to="/register" className="no-underline">
           <button
-            onClick={() => onExpand(course.id)}
-            className="text-xs font-bold uppercase tracking-widest border border-gray-200 rounded-full px-3 py-1.5 hover:border-gray-400 transition-colors cursor-pointer bg-white"
-            style={{ fontFamily: "'DM Sans', sans-serif", color: "#374151" }}
+            className="inline-flex items-center gap-1.5 text-white text-xs font-bold rounded-full px-4 py-1.5 border-none cursor-pointer"
+            style={{ background: course.color, fontFamily: "'DM Sans', sans-serif" }}
           >
-            Details
+            Enroll <ArrowUpRight size={11} />
           </button>
-          <Link to="/register" className="no-underline">
-            <button
-              className="inline-flex items-center gap-1.5 text-white text-xs font-bold rounded-full px-4 py-1.5 border-none cursor-pointer"
-              style={{ background: course.color, fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Enroll <ArrowUpRight size={11} />
-            </button>
-          </Link>
-        </div>
+        </Link>
       </div>
     </div>
   </motion.div>
@@ -467,11 +438,11 @@ const CourseDetail = ({ course, onClose }: { course: Course; onClose: () => void
         </div>
         <div className="relative z-10 flex flex-wrap items-center gap-6 mt-5">
           {[
-            { icon: Clock,        val: `${course.hours}h total`       },
-            { icon: Layers,       val: `${course.moduleCount} modules` },
-            { icon: Clock,        val: course.duration                 },
-            { icon: Star,         val: `${course.rating} rated`        },
-            { icon: Users,        val: `${course.students} enrolled`   },
+            { icon: Clock,  val: `${course.hours}h total`        },
+            { icon: Layers, val: `${course.moduleCount} modules` },
+            { icon: Clock,  val: course.duration                  },
+            { icon: Star,   val: `${course.rating} rated`         },
+            { icon: Users,  val: `${course.students} enrolled`    },
           ].map(({ icon: Icon, val }, j) => (
             <span key={j} className="flex items-center gap-1.5 text-white/80 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               <Icon size={12} /> {val}
@@ -556,13 +527,7 @@ const CourseDetail = ({ course, onClose }: { course: Course; onClose: () => void
                   </motion.div>
                 ))}
               </div>
-              <div className="mt-4 pt-5 border-t border-gray-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <p className="text-[#0a0f1e] font-bold text-lg" style={{ fontFamily: "'DM Sans', sans-serif" }}>{course.price}</p>
-                  <p className="text-gray-400 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {course.modules.length} modules · {course.modules.reduce((a, m) => a + m.topics.length, 0)} topics · {course.hours}h content
-                  </p>
-                </div>
+              <div className="mt-4 pt-5 border-t border-gray-50 flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4">
                 <div className="flex items-center gap-3">
                   <Link to={course.link} className="no-underline">
                     <button className="inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-full border border-gray-200 text-[#0a0f1e] hover:border-gray-400 transition-all bg-white cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -618,11 +583,7 @@ const Courses = () => {
   return (
     <Layout>
 
-      {/* ══════════════════════════════════════════════════════
-          1. HERO — white bg, rounded card, diagonal lines,
-             content pinned to bottom (first-code style)
-             + search bar layered inside
-      ══════════════════════════════════════════════════════ */}
+      {/* ── 1. HERO ── */}
       <section className="bg-white px-2 sm:px-3 pt-2 pb-0">
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[500px]">
           <img
@@ -631,13 +592,6 @@ const Courses = () => {
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/80" />
-          {/* <div
-            className="absolute inset-0 pointer-events-none opacity-10"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg,rgba(255,255,255,0.3) 0px,rgba(255,255,255,0.3) 1px,transparent 1px,transparent 60px)",
-            }}
-          /> */}
 
           <div className="relative z-10 flex flex-col justify-end h-full min-h-[320px] sm:min-h-[420px] lg:min-h-[500px] px-6 sm:px-10 lg:px-16 pb-8 sm:pb-12 pt-20 sm:pt-28">
             <motion.div
@@ -670,7 +624,6 @@ const Courses = () => {
               Industry-recognised cybersecurity training — from beginner fundamentals to advanced red teaming. Every course includes hands-on labs and a clear path to certification.
             </motion.p>
 
-            {/* Search bar — inline, no separate button */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -703,7 +656,6 @@ const Courses = () => {
               </div>
             </motion.div>
 
-            {/* Breadcrumb */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -722,13 +674,10 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          2. FILTER BAR — sticky
-      ══════════════════════════════════════════════════════ */}
+      {/* ── 2. FILTER BAR ── */}
       <section className="bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 py-4">
-            {/* Category tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0" style={{ scrollbarWidth: "none" }}>
               {categories.map((cat) => (
                 <button
@@ -749,7 +698,6 @@ const Courses = () => {
 
             <div className="hidden sm:block w-px h-6 bg-gray-200 mx-1" />
 
-            {/* Level pills */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0" style={{ scrollbarWidth: "none" }}>
               {levels.map((lv) => (
                 <button
@@ -775,9 +723,7 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          3. COURSE GRID
-      ══════════════════════════════════════════════════════ */}
+      {/* ── 3. COURSE GRID ── */}
       <section className="py-14 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
           {filtered.length === 0 ? (
@@ -814,9 +760,7 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          4. LEARNING PATHS — clean, minimal, no colour overload
-      ══════════════════════════════════════════════════════ */}
+      {/* ── 4. LEARNING PATHS ── */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-5xl">
           <div className="text-center mb-12">
@@ -834,61 +778,25 @@ const Courses = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
-              {
-                label:  "Complete Beginner",
-                step:   "Start here",
-                path:   ["Cyber Security 101", "CompTIA Network+", "SOC Analyst Level 1"],
-                note:   "Build from zero to your first SOC role.",
-              },
-              {
-                label:  "Career Changer",
-                step:   "Fast-track",
-                path:   ["CompTIA Security+", "Ethical Hacking & CEH", "Cloud Security (AWS)"],
-                note:   "Already in IT? Move into cybersecurity quickly.",
-              },
-              {
-                label:  "Security Professional",
-                step:   "Go advanced",
-                path:   ["Red Teaming", "CISSP Certification", "Data Science for Security"],
-                note:   "Seasoned practitioner? Master the highest-level skills.",
-              },
+              { label: "Complete Beginner", step: "Start here", path: ["Cyber Security 101", "CompTIA Network+", "SOC Analyst Level 1"], note: "Build from zero to your first SOC role." },
+              { label: "Career Changer",    step: "Fast-track", path: ["CompTIA Security+", "Ethical Hacking & CEH", "Cloud Security (AWS)"], note: "Already in IT? Move into cybersecurity quickly." },
+              { label: "Security Professional", step: "Go advanced", path: ["Red Teaming", "CISSP Certification", "Data Science for Security"], note: "Seasoned practitioner? Master the highest-level skills." },
             ].map((path, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300 flex flex-col"
-              >
-                {/* Step label */}
-                <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  {path.step}
-                </span>
+              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300 flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{path.step}</span>
                 <h3 className="text-[#0a0f1e] font-bold text-base mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{path.label}</h3>
                 <p className="text-gray-400 text-xs leading-relaxed mb-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>{path.note}</p>
-
-                {/* Course list — simple numbered */}
                 <ul className="space-y-3 flex-1 mb-6">
                   {path.path.map((step, j) => (
                     <li key={j} className="flex items-center gap-3">
-                      <span
-                        className="w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center shrink-0 text-[11px] font-bold text-gray-400"
-                        style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      >
-                        {j + 1}
-                      </span>
+                      <span className="w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center shrink-0 text-[11px] font-bold text-gray-400" style={{ fontFamily: "'DM Sans', sans-serif" }}>{j + 1}</span>
                       <span className="text-[#0a0f1e] text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step}</span>
                     </li>
                   ))}
                 </ul>
-
                 <Link to="/register" className="no-underline">
-                  <button
-                    className="w-full inline-flex items-center justify-center gap-2 text-white text-xs font-bold py-2.5 rounded-full border-none cursor-pointer transition-all active:scale-95 bg-[#0a0f1e] hover:bg-blue-900"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
+                  <button className="w-full inline-flex items-center justify-center gap-2 text-white text-xs font-bold py-2.5 rounded-full border-none cursor-pointer transition-all active:scale-95 bg-[#0a0f1e] hover:bg-blue-900" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     Start This Path <ArrowUpRight size={12} />
                   </button>
                 </Link>
@@ -898,9 +806,7 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          5. WHAT'S INCLUDED — feature row
-      ══════════════════════════════════════════════════════ */}
+      {/* ── 5. WHAT'S INCLUDED ── */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
           <div className="text-center mb-12">
@@ -910,20 +816,13 @@ const Courses = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: Shield,        title: "Hands-on Labs",         desc: "Real attack/defense lab environments — 24/7 access from day one." },
-              { icon: GraduationCap, title: "Expert Instructors",    desc: "Certified professionals with 10+ years of active industry experience." },
-              { icon: Award,         title: "Cert Prep Materials",   desc: "Practice exams, flashcards, and exam strategies aligned to the latest objectives." },
-              { icon: Zap,           title: "Job Placement Support", desc: "CV reviews, LinkedIn optimisation, mock interviews, and employer network access." },
+              { icon: Shield,        title: "Hands-on Labs",       desc: "Real attack/defense lab environments — 24/7 access from day one." },
+              { icon: GraduationCap, title: "Expert Instructors",  desc: "Certified professionals with 10+ years of active industry experience." },
+              { icon: Award,         title: "Cert Prep Materials", desc: "Practice exams, flashcards, and exam strategies aligned to the latest objectives." },
+              { icon: Zap,           title: "Career Acceleration", desc: "CV reviews, LinkedIn optimisation, mock interviews, and professional skills workshops." },
             ].map((item, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:-translate-y-1 hover:shadow-md transition-all duration-300"
-              >
+              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
                 <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4 shrink-0">
                   <item.icon size={20} className="text-blue-600" />
                 </div>
@@ -935,14 +834,10 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          6. ENROLL CTA — dark
-      ══════════════════════════════════════════════════════ */}
+      {/* ── 6. ENROLL CTA ── */}
       <section className="py-14 sm:py-20 bg-[#0a0f1e] relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "40px 40px" }}
-        />
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block" />
@@ -956,18 +851,12 @@ const Courses = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link to="/register" className="no-underline w-full sm:w-auto">
-              <button
-                className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-sm rounded-full px-8 py-3 transition-all border-none cursor-pointer"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <button className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-sm rounded-full px-8 py-3 transition-all border-none cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Enroll Now <ArrowUpRight size={15} />
               </button>
             </Link>
             <Link to="/contact" className="no-underline w-full sm:w-auto">
-              <button
-                className="inline-flex items-center justify-center w-full sm:w-auto border border-white/20 text-white hover:bg-white/10 rounded-full font-bold text-sm px-8 py-3 transition-all bg-transparent cursor-pointer"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <button className="inline-flex items-center justify-center w-full sm:w-auto border border-white/20 text-white hover:bg-white/10 rounded-full font-bold text-sm px-8 py-3 transition-all bg-transparent cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Request Enterprise Training
               </button>
             </Link>

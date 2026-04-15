@@ -15,7 +15,7 @@ import Legal from "./pages/Legal";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
-import Gallery from "./pages/Gallery";
+// import Gallery from "./pages/Gallery";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -38,7 +38,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/gallery" element={<Gallery />} />
+          {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/legal" element={<Legal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

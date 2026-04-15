@@ -6,7 +6,7 @@ import {
   Mic, BookOpen, CheckCircle,
   ChevronDown, ChevronLeft, ChevronRight,
   Lock, Cloud, Database, Cpu, Monitor, AlertTriangle, Eye, Network,
-  Clock, GraduationCap, Award, Layers,
+  Clock, GraduationCap, Award, Layers, Rocket,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
@@ -80,14 +80,14 @@ const heroSlides = [
 
 const featuredPaths = [
   { title: "Cyber Security 101",       level: "Beginner",     tag: null,      hours: 40, modules: 12, gradient: "from-blue-900 to-blue-700",     image: "/images/hero-home.jpg",  link: "/courses"    },
-  { title: "Ethical Hacking & CEH",    level: "Intermediate", tag: null,      hours: 60, modules: 16, gradient: "from-slate-800 to-indigo-900",   image: "/images/office.png",  link: "/courses"    },
-  { title: "SOC Analyst Level 1",      level: "Beginner",     tag: null,      hours: 35, modules: 10, gradient: "from-teal-900 to-cyan-800",      image: "/images/byte.jpeg", link: "/courses"    },
-  { title: "CompTIA Security+",        level: "Intermediate", tag: null,      hours: 45, modules: 14, gradient: "from-red-900 to-rose-800",       image: "/images/laps.png",  link: "/courses"    },
-  { title: "Cloud Security (AWS)",     level: "Advanced",     tag: null,      hours: 50, modules: 13, gradient: "from-orange-900 to-amber-800",   image: "/images/hero-home.jpg  ",  link: "/courses"  },
-  { title: "Red Teaming",              level: "Advanced",     tag: null,      hours: 70, modules: 18, gradient: "from-rose-950 to-red-800",       image: "/images/byte.jpeg", link: "/courses"    },
-  { title: "Data Science for Security",level: "Intermediate", tag: null,      hours: 55, modules: 15, gradient: "from-emerald-900 to-green-700",  image: "/images/office.png",  link: "/courses"     },
-  { title: "CompTIA Network+",         level: "Beginner",     tag: null,      hours: 38, modules: 11, gradient: "from-violet-900 to-purple-700",  image: "/images/byte.jpeg", link: "/courses" },
-  { title: "CISSP Certification",      level: "Advanced",     tag: null,      hours: 80, modules: 20, gradient: "from-sky-900 to-blue-800",       image: "/images/byt.jpeg",  link: "/courses"    },
+  { title: "Ethical Hacking & CEH",    level: "Intermediate", tag: null,      hours: 60, modules: 16, gradient: "from-slate-800 to-indigo-900",   image: "/images/office.png",     link: "/courses"    },
+  { title: "SOC Analyst Level 1",      level: "Beginner",     tag: null,      hours: 35, modules: 10, gradient: "from-teal-900 to-cyan-800",      image: "/images/byte.jpeg",      link: "/courses"    },
+  { title: "CompTIA Security+",        level: "Intermediate", tag: null,      hours: 45, modules: 14, gradient: "from-red-900 to-rose-800",       image: "/images/laps.png",       link: "/courses"    },
+  { title: "Cloud Security (AWS)",     level: "Advanced",     tag: null,      hours: 50, modules: 13, gradient: "from-orange-900 to-amber-800",   image: "/images/hero-home.jpg",  link: "/courses"  },
+  { title: "Red Teaming",              level: "Advanced",     tag: null,      hours: 70, modules: 18, gradient: "from-rose-950 to-red-800",       image: "/images/byte.jpeg",      link: "/courses"    },
+  { title: "Data Science for Security",level: "Intermediate", tag: null,      hours: 55, modules: 15, gradient: "from-emerald-900 to-green-700",  image: "/images/office.png",     link: "/courses"     },
+  { title: "CompTIA Network+",         level: "Beginner",     tag: null,      hours: 38, modules: 11, gradient: "from-violet-900 to-purple-700",  image: "/images/byte.jpeg",      link: "/courses" },
+  { title: "CISSP Certification",      level: "Advanced",     tag: null,      hours: 80, modules: 20, gradient: "from-sky-900 to-blue-800",       image: "/images/byt.jpeg",       link: "/courses"    },
 ];
 
 /* ── Cybersecurity blog posts for the homepage preview ─────────────────── */
@@ -107,7 +107,7 @@ const cyberBlogPosts = [
   {
     title:  "Zero Trust Architecture Explained: Why 'Never Trust, Always Verify' Is the New Standard",
     date:   "Mar 20, 2025",
-    image:  "/images/laps.png ",
+    image:  "/images/laps.png",
     link:   "/resources",
   },
 ];
@@ -126,7 +126,7 @@ const courseOutlines = [
       { name: "Compliance & Governance",               topics: ["NIST, ISO 27001 & CIS Frameworks", "GDPR & Data Protection Regulations", "Risk Assessment & Management", "Security Policy Development"] },
       { name: "Certification Exam Prep",               topics: ["CEH (Certified Ethical Hacker) — EC-Council", "CISSP — ISC²", "CompTIA Security+ SY0-701", "OSCP — Offensive Security", "eJPT — eLearnSecurity"] },
     ],
-    link: "/courses",
+    link: "/courses/cybersecurity",
   },
   {
     icon: Database, title: "Data Science", color: "#0f766e", bg: "#f0fdfa",
@@ -141,7 +141,7 @@ const courseOutlines = [
       { name: "Data Visualization & Reporting",   topics: ["Tableau & Power BI Dashboards", "Matplotlib & Seaborn Charts", "Executive Security Reporting", "Real-time Alert Dashboards"] },
       { name: "Certification Exam Prep",          topics: ["IBM Data Science Professional Certificate", "Google Data Analytics Certificate", "AWS Machine Learning Specialty", "Microsoft Azure DP-100"] },
     ],
-    link: "/courses",
+    link: "/courses/data-science",
   },
   {
     icon: Cloud, title: "Cloud Computing", color: "#7c3aed", bg: "#f5f3ff",
@@ -156,7 +156,7 @@ const courseOutlines = [
       { name: "Cloud Monitoring & Incident Response",  topics: ["AWS CloudTrail & GuardDuty", "Azure Sentinel SIEM", "GCP Security Command Center", "Cloud Forensics & Incident Response", "Automated Remediation Workflows"] },
       { name: "Certification Exam Prep",               topics: ["AWS Solutions Architect Associate/Professional", "AWS Security Specialty (SCS-C02)", "Azure Security Engineer AZ-500", "GCP Professional Cloud Security Engineer", "CompTIA Cloud+ CV0-004"] },
     ],
-    link: "/courses",
+    link: "/courses/cloud-computing",
   },
   {
     icon: Cpu, title: "Computer Hardware", color: "#b45309", bg: "#fffbeb",
@@ -171,7 +171,7 @@ const courseOutlines = [
       { name: "IoT & Embedded Systems", topics: ["IoT Architecture, Protocols & Standards", "Raspberry Pi & Arduino Projects", "IoT Security Vulnerabilities & Mitigations", "Firmware Analysis Basics", "Smart Device Pentesting Introduction"] },
       { name: "Certification Exam Prep",topics: ["CompTIA A+ Core 1 & Core 2 (220-1101/1102)", "CompTIA Network+ N10-009", "CompTIA Server+ SK0-005", "Cisco CCNA 200-301 Introduction"] },
     ],
-    link: "/courses",
+    link: "/courses/computer-hardware",
   },
 ];
 
@@ -196,7 +196,7 @@ const marqueeTopics = [
 const whyChooseUs = [
   { icon: Monitor,    title: "Hands-on Labs",       desc: "Real lab environments that simulate actual attack/defense scenarios used by professionals." },
   { icon: Users,      title: "Expert Instructors",  desc: "Certified professionals with 10+ years of active industry experience in their specialties." },
-  { icon: TrendingUp, title: "Industry-Recognized", desc: "Certifications respected by top employers globally  CompTIA, ISC², EC-Council, AWS, and more." },
+  { icon: TrendingUp, title: "Industry-Recognized", desc: "Certifications respected by top employers globally — CompTIA, ISC², EC-Council, AWS, and more." },
   { icon: Shield,     title: "Cost-Effective",      desc: "Premium training at a fraction of traditional bootcamp costs, with flexible payment plans." },
 ];
 
@@ -257,11 +257,11 @@ const StatCounter = ({ s, started }: { s: typeof statsData[0]; started: boolean 
   const n = useCountUp(s.end, 1600, started);
   return (
     <>
-      <span className="block font-bold text-white leading-none mb-1.5 text-3xl sm:text-4xl lg:text-[42px]"
+      <span className="block font-bold text-white leading-none mb-1.5 text-2xl sm:text-3xl lg:text-[42px]"
         style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
         {started ? `${n}${s.suffix}` : `${s.end}${s.suffix}`}
       </span>
-      <span className="block text-white/60 text-[11px] sm:text-xs font-semibold uppercase tracking-wider">{s.label}</span>
+      <span className="block text-white/60 text-[10px] sm:text-xs font-semibold uppercase tracking-wider leading-tight">{s.label}</span>
     </>
   );
 };
@@ -278,14 +278,12 @@ const HeroStatsBar = () => {
       className="absolute bottom-0 left-0 right-0 z-20"
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-      <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="relative z-10 grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 max-w-7xl mx-auto px-4 sm:px-12 lg:px-20">
         {statsData.map((s, i) => (
           <div key={s.label} className={[
-            "flex flex-col py-6 sm:py-8 pr-6 sm:pr-10",
-            i > 0 ? "pl-6 sm:pl-10" : "",
-            i < 2 ? "border-b border-white/20 sm:border-b-0" : "",
-            i >= 2 && i < 4 ? "hidden sm:flex" : "",
-            i === 4 ? "hidden lg:flex" : "",
+            "flex flex-col py-4 sm:py-8 px-3 sm:pr-6 sm:pr-10",
+            i > 0 ? "sm:pl-10 border-l border-white/10 sm:border-l-0" : "",
+            i >= 3 ? "hidden lg:flex" : "",
           ].join(" ")}>
             <StatCounter s={s} started={inView} />
           </div>
@@ -379,23 +377,14 @@ const FeaturedPathsSlider = () => {
           >
             {visible.map((path, i) => (
               <Link key={i} to={path.link} className="no-underline group">
-                {/* ─── Card: taller than before (h-[340px]) ─── */}
                 <div className="relative rounded-2xl overflow-hidden h-[340px] flex flex-col justify-end p-6 cursor-pointer transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-2xl">
-
-                  {/* Background image */}
                   <img
                     src={path.image}
                     alt={path.title}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-300" />
-
-                  {/* Subtle gradient tint */}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
                   <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-transparent" />
-
-                  {/* Content */}
                   <div className="relative z-10">
                     {path.tag && (
                       <div className="absolute top-5 left-5">
@@ -403,18 +392,14 @@ const FeaturedPathsSlider = () => {
                           style={{ fontFamily: "'DM Sans', sans-serif" }}>✦ {path.tag}</span>
                       </div>
                     )}
-
                     <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-white/60 mb-2"
                       style={{ fontFamily: "'DM Sans', sans-serif" }}>{path.level}</span>
-
                     <h3 className="text-white font-bold text-xl leading-snug mb-3"
                       style={{ fontFamily: "'DM Sans', sans-serif" }}>{path.title}</h3>
-
                     <div className="flex items-center gap-3 mb-4">
                       <span className="flex items-center gap-1 text-white/60 text-xs"><Clock size={11} /> {path.hours}h</span>
                       <span className="flex items-center gap-1 text-white/60 text-xs"><Layers size={11} /> {path.modules} modules</span>
                     </div>
-
                     <button
                       className="w-fit inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-xs font-bold px-4 py-2 rounded-lg transition-all border border-white/20 cursor-pointer"
                       style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -584,10 +569,16 @@ const OfferingsSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [-80, 80]);
 
   const offerings = [
-    { icon: GraduationCap, title: "Certification Programs",   desc: "Structured pathways to globally recognised certifications — CEH, CISSP, CompTIA, AWS, Azure, and more.", stat: "12+ Certifications", link: "/courses" },
+    { icon: GraduationCap, title: "Certification Programs",   desc: "Structured pathways to globally recognised certifications CEH, CISSP, CompTIA, AWS, Azure, and more.", stat: "12+ Certifications", link: "/courses" },
     { icon: Monitor,       title: "Virtual Labs & Sandboxes", desc: "24/7 access to isolated, hands-on lab environments where you practice real attack and defense scenarios safely.", stat: "100+ Live Labs",    link: "/training" },
-    { icon: Users,         title: "Live Mentorship",          desc: "1-on-1 sessions with certified instructors — career guidance, exam strategy, and code reviews from active professionals.", stat: "20+ Mentors",   link: "/about" },
-    { icon: Award,         title: "Job Placement Support",    desc: "CV reviews, LinkedIn optimisation, mock interviews, and direct connections to our employer network upon completion.", stat: "85% Placed",      link: "/register" },
+    { icon: Users,         title: "Live Mentorship",          desc: "1-on-1 sessions with certified instructors career guidance, exam strategy, and code reviews from active professionals.", stat: "20+ Mentors",   link: "/services" },
+  {
+    icon: Rocket,
+    title: "Career Acceleration",
+    desc: "Develop job-ready cybersecurity skills through hands-on training, practical labs, and structured learning paths aligned with industry needs.",
+    stat: "Industry Ready",
+    link: "/courses"
+  },
   ];
 
   return (
@@ -595,10 +586,9 @@ const OfferingsSection = () => {
       ref={ref}
       className="relative py-20 sm:py-28 overflow-hidden bg-fixed bg-cover bg-center"
       style={{
-        backgroundImage: "url('/hero-bg.jpg')" // 👈 add your image here
+        backgroundImage: "url('/hero-bg.jpg')"
       }}
     >
-      {/* ✅ Parallax moving image layer (your existing effect) */}
       <motion.div
         className="absolute inset-0 w-full h-full will-change-transform"
         style={{ y }}
@@ -611,7 +601,6 @@ const OfferingsSection = () => {
         />
       </motion.div>
 
-      {/* ✅ Dark overlay (unchanged but works with new bg layer) */}
       <div className="absolute inset-0 bg-[#0a0f1e]/90 z-[1]" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
@@ -625,7 +614,7 @@ const OfferingsSection = () => {
           </h2>
 
           <p className="text-white/60 text-sm sm:text-base max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            From certification prep and live labs to mentorship and job placement, we support your entire journey.
+            From certification prep and live labs to mentorship and career acceleration, we support your entire journey.
           </p>
         </div>
 
@@ -680,13 +669,14 @@ const OfferingsSection = () => {
     </section>
   );
 };
+
 /* ── Services Section ────────────────────────────────────────────────────── */
 const ServicesSection = () => {
   const groups = [
     {
       category: "Cybersecurity Services", categoryIcon: Shield, accent: "#1d4ed8",
       items: [
-        { icon: Shield,        title: "Cybersecurity Consulting",    desc: "End-to-end security advisory  from gap analysis to a fully implemented security framework tailored for your organisation." },
+        { icon: Shield,        title: "Cybersecurity Consulting",    desc: "End-to-end security advisory — from gap analysis to a fully implemented security framework tailored for your organisation." },
         { icon: Eye,           title: "Security Risk Assessment",    desc: "Identify critical vulnerabilities before attackers do. Detailed risk reports with prioritised remediation plans." },
         { icon: AlertTriangle, title: "Security Awareness Training", desc: "Human error causes 90% of breaches. Our behavioural training turns your staff into a vigilant first line of defence." },
         { icon: Network,       title: "Network Security Monitoring", desc: "Continuous 24/7 network monitoring with real-time threat detection, alerting, and incident response support." },
@@ -695,10 +685,10 @@ const ServicesSection = () => {
     {
       category: "Training Programs", categoryIcon: GraduationCap, accent: "#0f766e",
       items: [
-        { icon: Lock,     title: "Cybersecurity Training",        desc: "Offensive and defensive security ethical hacking, penetration testing, SOC operations, and threat intelligence." },
-        { icon: Database, title: "Data Science Training",         desc: "Machine learning, Python analytics, and AI-powered security applications  from fundamentals to professional certification." },
+        { icon: Lock,     title: "Cybersecurity Training",        desc: "Offensive and defensive security — ethical hacking, penetration testing, SOC operations, and threat intelligence." },
+        { icon: Database, title: "Data Science Training",         desc: "Machine learning, Python analytics, and AI-powered security applications — from fundamentals to professional certification." },
         { icon: Cloud,    title: "Cloud Computing Training",      desc: "AWS, Azure, and GCP certification pathways combined with cloud security architecture and DevSecOps best practices." },
-        { icon: Cpu,      title: "Computer Hardware Engineering", desc: "Systems architecture, network hardware, infrastructure design, and IoT security  aligned to CompTIA A+, Net+ and Server+." },
+        { icon: Cpu,      title: "Computer Hardware Engineering", desc: "Systems architecture, network hardware, infrastructure design, and IoT security — aligned to CompTIA A+, Net+ and Server+." },
       ],
     },
   ];
@@ -872,7 +862,7 @@ const BlogSection = () => {
                     alt={post.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-300" />
                   <div className="absolute top-4 left-4">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-blue-600 px-3 py-1 rounded-full"
                       style={{ fontFamily: "'DM Sans', sans-serif" }}>Cyber Insights</span>
@@ -1014,8 +1004,8 @@ const HeroSection = () => {
         {/* Constant dark base so text is always readable */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* ── Content ── */}
-        <div className="relative z-10 flex items-start min-h-[100vh] px-6 sm:px-12 lg:px-20 pt-28 sm:pt-36 pb-44 sm:pb-52">
+        {/* ── Content — padding-right increased on mobile to avoid arrow overlap ── */}
+        <div className="relative z-10 flex items-start min-h-[100vh] px-6 sm:px-12 lg:px-20 pr-20 sm:pr-24 lg:pr-20 pt-28 sm:pt-36 pb-44 sm:pb-52">
           <div className="max-w-2xl w-full">
             <TickerBar />
             <AnimatePresence mode="wait" custom={dir}>
@@ -1061,13 +1051,13 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Prev / Next arrows */}
-        <div className="absolute right-6 sm:right-10 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-3">
-          <button onClick={goPrev} className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all cursor-pointer">
-            <ChevronLeft size={18} className="text-white" />
+        {/* Prev / Next arrows — moved to bottom-right on mobile to avoid content overlap */}
+        <div className="absolute right-4 sm:right-10 bottom-48 sm:top-1/2 sm:-translate-y-1/2 z-30 flex flex-col gap-3">
+          <button onClick={goPrev} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all cursor-pointer">
+            <ChevronLeft size={16} className="text-white" />
           </button>
-          <button onClick={goNext} className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all cursor-pointer">
-            <ChevronRight size={18} className="text-white" />
+          <button onClick={goNext} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all cursor-pointer">
+            <ChevronRight size={16} className="text-white" />
           </button>
         </div>
 
@@ -1088,6 +1078,10 @@ const HeroSection = () => {
     </section>
   );
 };
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TESTIMONIALS — updated with job title, no photo
+══════════════════════════════════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════════════════════════════════════
    MAIN PAGE

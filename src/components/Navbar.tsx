@@ -13,7 +13,7 @@ const navLinks = [
   { to: "/training", label: "Training" },
   // { to: "/membership", label: "Membership" },
   // { to: "/podcast", label: "Podcast" },
-  { to: "/gallery", label: "Testimonials" },
+  // { to: "/gallery", label: "Testimonials" },
   { to: "/resources", label: "Blogs" },
   // { to: "/resources", label: "Resources" },
   { to: "/contact", label: "Contact" },
@@ -225,7 +225,7 @@ className="flex items-center justify-between w-full max-w-7xl h-14 sm:h-16 px-4 
                   </span>
                 </motion.button>
               </Link>
-              <p className="text-center text-xs text-gray-400 mt-2">Next session — April 12, 2025</p>
+              <p className="text-center text-xs text-gray-400 mt-2">Next cohort — March, 2026</p>
             </motion.div>
           </motion.div>
         )}

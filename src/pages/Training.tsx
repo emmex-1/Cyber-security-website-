@@ -14,22 +14,36 @@ import heroImage from "/images/byte.jpeg";
    COUNTDOWN HOOK
 ══════════════════════════════════════════════════════════════════════════ */
 function useCountdown(targetDate: string) {
+  const getTime = () => new Date(targetDate).getTime();
+
   const calc = () => {
-    const diff = new Date(targetDate).getTime() - Date.now();
-    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
+    const target = getTime();
+    const diff = target - Date.now();
+
+    if (isNaN(target)) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
+    }
+
+    if (diff <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
+    }
+
     return {
-      days: Math.floor(diff / 86400000),
-      hours: Math.floor((diff % 86400000) / 3600000),
-      minutes: Math.floor((diff % 3600000) / 60000),
-      seconds: Math.floor((diff % 60000) / 1000),
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
       expired: false,
     };
   };
+
   const [time, setTime] = useState(calc);
+
   useEffect(() => {
     const id = setInterval(() => setTime(calc()), 1000);
     return () => clearInterval(id);
   }, [targetDate]);
+
   return time;
 }
 
@@ -64,7 +78,7 @@ const nextCohort = {
   applicationDeadline: "Friday, April 2026",
   orientation: "Wednesday, 2 March 2025",
   startISO: "2026-03-04T09:00:00",
-  endISO: "2025-05-27T18:00:00",
+  endISO: "2026-05-27T18:00:00Z",
 };
 
 /* Upcoming cohort sessions */
@@ -231,7 +245,7 @@ function CohortCard({ session, index }: { session: typeof upcomingSessions[0]; i
       variants={fadeUp}
       className="bg-white rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-md transition-all duration-300 overflow-hidden"
     >
-      <div className="h-1 bg-gradient-to-r from-blue-500 to-indigo-500" />
+      {/* <div className="h-1 bg-gradient-to-r from-blue-500 to-indigo-500" /> */}
       <div className="p-6">
         {/* Header */}
         <div className="flex items-start justify-between gap-3 mb-4">
@@ -432,7 +446,7 @@ const Training = () => {
                 </div>
                 <Link to="/register" className="no-underline">
                   <button
-                    className="inline-flex items-center gap-2 bg-white text-blue-700 hover:bg-yellow-300 hover:text-blue-900 font-bold text-xs rounded-full px-5 py-2.5 transition-all border-none cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-white text-blue-700 hover:bg-blue-300 hover:text-blue-900 font-bold text-xs rounded-full px-5 py-2.5 transition-all border-none cursor-pointer"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Secure Your Spot <ArrowUpRight size={12} />
@@ -708,7 +722,7 @@ const Training = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link to="/register" className="no-underline w-full sm:w-auto">
                 <button
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white text-blue-700 hover:bg-yellow-300 hover:text-blue-900 font-bold text-sm rounded-full px-8 py-3.5 transition-all border-none cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white text-blue-700 hover:bg-blue-200 hover:text-blue-900 font-bold text-sm rounded-full px-8 py-3.5 transition-all border-none cursor-pointer"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Register Now <ArrowUpRight size={15} />

@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Shield, Lock, Cloud, Database, Cpu, ArrowUpRight, Github, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Lock, Cloud, Database, Cpu, ArrowUpRight, Github, Linkedin, Twitter, Youtube } from "lucide-react";
+import logo from "./logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-[#020812] text-white relative overflow-hidden">
-      {/* Subtle grid lines */}
-      {/* <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "40px 40px" }} /> */}
       {/* Blue glow top */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-blue-600 to-transparent" />
 
@@ -14,12 +12,20 @@ const Footer = () => {
 
         {/* Top strip */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-b border-white/5">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
-              <Shield size={16} className="text-white" />
-            </div>
-            <span className="text-white font-bold text-lg" style={{ fontFamily: "'DM Sans', sans-serif" }}>BYTITUDE</span>
-          </div>
+          {/* BYTITUDE logo — text-based with blue accent */}
+          <Link to="/" className="no-underline flex items-center gap-2.5 group">
+            <Link to="/" className="no-underline flex items-center gap-2.5 group">
+  <img
+    src="/logo.png"
+    alt="Bytitude Logo"
+    className="h-9 w-auto object-contain"
+  />
+  <span className="text-white font-bold text-sm group-hover:text-blue-400 transition-colors">
+    BYTITUDE
+  </span>
+</Link>
+          </Link>
+
           <p className="text-white/40 text-xs text-center sm:text-right" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             Cybersecurity Upskilling · Certification · Talent Assessment
           </p>
@@ -52,28 +58,28 @@ const Footer = () => {
                 style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 <Mail size={13} className="shrink-0" /> info@bytitude.com
               </a>
-              <a href="tel:+1234567890"
+              <a href="tel:+2349015475545"
                 className="flex items-center gap-2.5 text-white/50 hover:text-blue-400 text-xs transition-colors no-underline"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 <Phone size={13} className="shrink-0" /> +234 901 547 5545
               </a>
-              <span className="flex items-center gap-2.5 text-white/50 text-xs"
+              <span className="flex items-start gap-2.5 text-white/50 text-xs"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <MapPin size={13} className="shrink-0" /> Sam Ewang Ext. Abeokuta<br></br>
-ABK 110101, Ogun State, Nigeria
+                <MapPin size={13} className="shrink-0 mt-0.5" />
+                <span>Sam Ewang Ext. Abeokuta<br />ABK 110101, Ogun State, Nigeria</span>
               </span>
             </div>
           </div>
 
-          {/* Courses */}
+          {/* Courses — each goes to its specific course category page */}
           <div>
             <p className="text-white text-xs font-bold uppercase tracking-[0.18em] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>Courses</p>
             <div className="space-y-2.5">
               {[
-                { label: "Cybersecurity", icon: Lock, href: "/courses/cybersecurity" },
-                { label: "Data Science",   icon: Database, href: "/courses/data-science" },
-                { label: "Cloud Computing",icon: Cloud, href: "/courses/cloud-computing" },
-                { label: "Computer Hardware",icon: Cpu, href: "/courses/computer-hardware" },
+                { label: "Cybersecurity",      icon: Lock,     href: "/courses"      },
+                { label: "Data Science",        icon: Database, href: "/courses"       },
+                { label: "Cloud Computing",     icon: Cloud,    href: "/courses"    },
+                { label: "Computer Hardware",   icon: Cpu,      href: "/courses"  },
               ].map(({ label, icon: Icon, href }) => (
                 <Link key={label} to={href}
                   className="flex items-center gap-2 text-white/50 hover:text-white text-xs transition-colors no-underline group"
@@ -90,7 +96,6 @@ ABK 110101, Ogun State, Nigeria
             <p className="text-white text-xs font-bold uppercase tracking-[0.18em] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>Company</p>
             <div className="space-y-2.5">
               {[
-                // { label: "About Us",    href: "/about"    },
                 { label: "Services",    href: "/services" },
                 { label: "Training",    href: "/training" },
                 { label: "Pricing",     href: "/pricing"  },
@@ -110,9 +115,9 @@ ABK 110101, Ogun State, Nigeria
             <p className="text-white text-xs font-bold uppercase tracking-[0.18em] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>Resources</p>
             <div className="space-y-2.5">
               {[
-                { label: "Blog & Articles", href: "/resources" },
-                { label: "Testimonials",    href: "/testimonials" },
-                { label: "Register",        href: "/register"  },
+                { label: "Blog & Articles", href: "/resources"     },
+                // { label: "Testimonials",    href: "/testimonials"  },
+                { label: "Register",        href: "/register"      },
               ].map(({ label, href }) => (
                 <Link key={label} to={href}
                   className="block text-white/50 hover:text-white text-xs transition-colors no-underline"

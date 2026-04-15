@@ -1,151 +1,168 @@
-import { useEffect, useRef } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Lock, Cloud, Shield, Database, Cpu } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Oladapo.",
-    image: "/images/image1.jpeg",
-    text: "BYTITUDE is one of a kind and they definitely know how to keep organizations data and assets secure.",
+    quote:
+      "Before BYTITUDE I had zero security experience. Six months later I passed the CEH and landed a junior analyst role at a fintech firm. The lab environments are unlike anything I'd seen in other online platforms — it feels like a real SOC.",
+    name: "Adaeze Okonkwo",
+    jobTitle: "Security Analyst",
+    location: "Lagos, Nigeria",
+    track: "CYBERSECURITY — CEH TRACK",
+    trackIcon: Lock,
     rating: 5,
   },
   {
-    name: "Sesan",
-    image: "/images/image2.jpeg",
-    text: " BYTITUDE keep to their promises and they provide excellent services. I will patronize them over and over again.",
+    quote:
+      "The Cloud Security AWS course gave me the confidence to sit and pass the AWS Security Specialty exam on my first attempt.",
+    name: "Emeka Nwosu",
+    jobTitle: "Cloud Security Engineer",
+    location: "Abuja, Nigeria",
+    track: "CLOUD COMPUTING — AWS TRACK",
+    trackIcon: Cloud,
     rating: 5,
   },
   {
-    name: "Rodiat",
-    image: "/images/image3.jpeg",
-    text: "Their services are so professional and focused on satisfying their customers.",
+    quote:
+      "I switched from banking to cybersecurity after completing the SOC Analyst program. I now work at a top-tier IT security firm.",
+    name: "Chioma Eze",
+    jobTitle: "SOC Analyst",
+    location: "Port Harcourt, Nigeria",
+    track: "CYBERSECURITY — SOC TRACK",
+    trackIcon: Shield,
     rating: 5,
   },
   {
-    name: "Daniel",
-    image: "/images/image4.jpeg",
-    text: "The accountability changed everything.",
+    quote:
+      "BYTITUDE's Data Science for Security course opened my eyes to how machine learning can be applied to threat detection.",
+    name: "Taiwo Adeyemi",
+    jobTitle: "Threat Intelligence Analyst",
+    location: "Ibadan, Nigeria",
+    track: "DATA SCIENCE — SECURITY TRACK",
+    trackIcon: Database,
+    rating: 5,
+  },
+  {
+    quote:
+      "The CompTIA Network+ course gave me the networking foundation I needed. Passed on the first attempt.",
+    name: "Oluwaseun Balogun",
+    jobTitle: "Network Security Technician",
+    location: "Abeokuta, Nigeria",
+    track: "HARDWARE — NETWORK+ TRACK",
+    trackIcon: Cpu,
     rating: 5,
   },
 ];
 
-export default function TestimonialsSlider() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-  });
+/* ⭐ Stars */
+const StarRating = ({ count }: { count: number }) => (
+  <div className="flex items-center gap-1 mb-4">
+    {Array.from({ length: count }).map((_, i) => (
+      <svg
+        key={i}
+        width="16"
+        height="16"
+        viewBox="0 0 20 20"
+        fill="#f59e0b"
+      >
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+);
 
-  const autoplayRef = useRef(null);
+const ITEMS_PER_VIEW = 3;
 
-  const startAutoplay = () => {
-    if (!emblaApi) return;
-    stopAutoplay();
-    autoplayRef.current = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 3000);
-  };
+const TestimonialsSlider = () => {
+  const [index, setIndex] = useState(0);
+  const total = testimonials.length;
 
-  const stopAutoplay = () => {
-    if (autoplayRef.current) {
-      clearInterval(autoplayRef.current);
-      autoplayRef.current = null;
-    }
-  };
-
+  /* Auto slide */
   useEffect(() => {
-    if (!emblaApi) return;
-    startAutoplay();
-    return () => stopAutoplay();
-  }, [emblaApi]);
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + ITEMS_PER_VIEW) % total);
+    }, 5000);
 
-  const scrollPrev = () => {
-    if (!emblaApi) return;
-    emblaApi.scrollPrev();
-    startAutoplay(); // restart timer after manual click
-  };
+    return () => clearInterval(interval);
+  }, [total]);
 
-  const scrollNext = () => {
-    if (!emblaApi) return;
-    emblaApi.scrollNext();
-    startAutoplay(); // restart timer after manual click
-  };
+  const visible = testimonials.slice(index, index + ITEMS_PER_VIEW);
+
+  const display =
+    visible.length < ITEMS_PER_VIEW
+      ? [
+          ...visible,
+          ...testimonials.slice(0, ITEMS_PER_VIEW - visible.length),
+        ]
+      : visible;
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-16 sm:py-24 bg-[#f8fafc]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-6xl">
 
-        {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Real People, Real Results
+        {/* Header */}
+        <div className="text-center mb-12">
+          <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]">
+            Student Stories
+          </span>
+          <h2 className="text-[#0a0f1e] font-bold text-3xl sm:text-4xl">
+            What Our Students Say
           </h2>
-          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            Hear from families who transformed their financial lives.
-          </p>
         </div>
 
-        <div className="relative">
+        {/* GRID SLIDER */}
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {display.map((t, i) => {
+            const TrackIcon = t.trackIcon;
 
-          {/* Left Arrow */}
-          <button
-            onClick={scrollPrev}
-            className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
-          >
-            <ChevronLeft size={22} />
-          </button>
+            return (
+              <div
+                key={i}
+                className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6"
+              >
+                {/* Track badge */}
+                <div className="inline-flex items-center gap-2 border border-gray-200 rounded-full px-3 py-1.5 mb-4">
+                  <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                    <TrackIcon size={10} className="text-white" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                    {t.track}
+                  </span>
+                </div>
 
-          {/* Slider */}
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] px-3"
-                >
-                  <div className="bg-white rounded-xl shadow-md p-6 h-full flex flex-col">
+                <StarRating count={t.rating} />
 
-                    <div className="flex justify-center mb-4">
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        className="w-16 h-16 rounded-full object-cover"
-                      />
-                    </div>
+                <p className="text-[#0a0f1e] text-sm leading-relaxed mb-6">
+                  "{t.quote}"
+                </p>
 
-                    <div className="flex justify-center gap-1 mb-3">
-                      {Array.from({ length: t.rating }).map((_, j) => (
-                        <Star
-                          key={j}
-                          size={16}
-                          className="text-yellow-500 fill-yellow-500"
-                        />
-                      ))}
-                    </div>
-
-                    <p className="text-gray-600 text-sm text-center italic mb-4 flex-grow">
-                      "{t.text}"
-                    </p>
-
-                    <p className="text-center font-semibold text-gray-900">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-[#0a0f1e] font-bold text-sm">
                       {t.name}
                     </p>
-
+                    <p className="text-gray-500 text-xs">
+                      {t.jobTitle} · {t.location}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={scrollNext}
-            className="absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
-          >
-            <ChevronRight size={22} />
-          </button>
-
-        </div>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
-}
+};
+
+export default TestimonialsSlider;

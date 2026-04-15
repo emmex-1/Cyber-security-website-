@@ -32,7 +32,7 @@ const cyberServices = [
     icon: Eye,
     title: "Security Risk Assessment",
     tag: "Assessment",
-    tagColor: "#0f766e",
+    tagColor: "#1d4ed8",
     desc: "Identify your most critical vulnerabilities before attackers do. We deliver comprehensive threat and risk analysis across your infrastructure, applications, and people — with prioritised findings you can act on.",
     deliverables: ["Vulnerability Discovery Report", "CVSS-Scored Risk Matrix", "Threat Modelling", "Remediation Roadmap"],
     ideal: "Pre-audit preparation, compliance readiness, regulatory requirements",
@@ -41,7 +41,7 @@ const cyberServices = [
     icon: AlertTriangle,
     title: "Security Awareness Training",
     tag: "People",
-    tagColor: "#7c3aed",
+    tagColor: "#1d4ed8",
     desc: "Human error accounts for 90% of breaches. Our behavioural security training turns your employees from your biggest risk into your first line of defence — using psychology-backed techniques that actually change behaviour.",
     deliverables: ["Phishing Simulation Campaigns", "Awareness Workshop Delivery", "Custom Training Content", "Post-Training Assessment"],
     ideal: "All staff levels — from frontline employees to executives",
@@ -50,7 +50,7 @@ const cyberServices = [
     icon: Network,
     title: "Network Security Monitoring",
     tag: "Operations",
-    tagColor: "#b45309",
+    tagColor: "#1d4ed8",
     desc: "Continuous 24/7 visibility into your network perimeter. We deploy monitoring tools, configure detection rules, and provide real-time threat alerting with escalation procedures tailored to your environment.",
     deliverables: ["SIEM Deployment & Configuration", "Custom Detection Rules", "24/7 Alert Monitoring", "Monthly Threat Reports"],
     ideal: "Businesses requiring continuous security operations without an internal SOC",
@@ -62,7 +62,7 @@ const trainingServices = [
     icon: Lock,
     title: "Cybersecurity Training",
     tag: "Certification",
-    tagColor: "#1d4ed8",
+    tagColor: "#0f766e",
     desc: "Offensive and defensive security — ethical hacking, penetration testing, SOC operations, threat intelligence, and compliance certifications from CEH to CISSP.",
     certs: ["CEH", "CISSP", "CompTIA Security+", "OSCP", "eJPT"],
   },
@@ -78,7 +78,7 @@ const trainingServices = [
     icon: Cloud,
     title: "Cloud Computing Training",
     tag: "Infrastructure",
-    tagColor: "#7c3aed",
+    tagColor: "#0f766e",
     desc: "AWS, Azure, and GCP certification pathways combined with cloud security architecture and DevSecOps best practices for modern infrastructure teams.",
     certs: ["AWS Solutions Architect", "Azure AZ-500", "GCP Pro Security"],
   },
@@ -86,7 +86,7 @@ const trainingServices = [
     icon: Cpu,
     title: "Computer Hardware Engineering",
     tag: "Foundations",
-    tagColor: "#b45309",
+    tagColor: "#0f766e",
     desc: "Systems architecture, network hardware, infrastructure design, and IoT security — fully aligned to CompTIA A+, Network+, Server+, and Cisco CCNA.",
     certs: ["CompTIA A+", "Network+", "Server+", "Cisco CCNA"],
   },
@@ -158,10 +158,22 @@ const credentials = [
 
 /* From About page — Institutional / community partnerships */
 const partners = [
-  { icon: BookOpen,      title: "Community Colleges",      desc: "Delivering security education modules embedded into accredited college curricula." },
-  { icon: GraduationCap, title: "Universities",            desc: "Blending cybersecurity, cloud, and data science into university partner programs nationally." },
+  {
+    icon: GraduationCap,
+    title: "IT & Cybersecurity Professionals",
+    desc: "Advanced training programs designed for professionals looking to upskill in cybersecurity, cloud security, and real-world threat defense."
+  },
+  {
+    icon: Users,
+    title: "Students & Emerging Talent",
+    desc: "Supporting students and recent graduates with foundational skills, mentorship, and guided entry into cybersecurity careers."
+  },
   { icon: Users,         title: "Corporate Organisations", desc: "Workplace workshops that reduce breach risk and build a security-first culture." },
-  { icon: Mic,           title: "Youth Programmes",        desc: "Cyber-readiness and life-skills training delivered directly to the next generation." },
+  {
+    icon: Mic,
+    title: "SOC & Blue Team Training",
+    desc: "Hands-on experience in Security Operations Center workflows, threat detection, incident response, and real-world defense scenarios."
+  },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════════

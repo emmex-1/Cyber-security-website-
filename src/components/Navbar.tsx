@@ -6,13 +6,13 @@ import logo from "/logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  // { to: "/about", label: "About" },
   { to: "/courses", label: "Courses" },
   { to: "/workshops", label: "Pricing" },
   { to: "/training", label: "Training" },
   // { to: "/membership", label: "Membership" },
-  // { to: "/podcast", label: "Podcast" },
+  { to: "/organization", label: "Corporate" },
   // { to: "/gallery", label: "Testimonials" },
   { to: "/resources", label: "Blogs" },
   // { to: "/resources", label: "Resources" },

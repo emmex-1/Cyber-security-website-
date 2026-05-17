@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Shield, Eye, AlertTriangle, Network, ArrowUpRight,
-  Lock, Cloud, Database, Cpu, GraduationCap, CheckCircle,
-  Building, Users, Target, Zap, ChevronRight,
-  Globe, Quote, Mic, BookOpen,
+  Lock, Cloud, GraduationCap, CheckCircle,
+  Building, Users, Target, Zap,
+  Globe, ClipboardList, Lightbulb, Settings, Award,
+  Monitor, Cpu, ChevronRight,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
 import heroImage  from "/images/byt.jpeg";
-import aboutImage from "/images/byt.jpeg";
-import timsImage  from "/images/byte.jpeg";
+import aboutImage from "/images/byte.jpeg";
 
 const fadeUp = {
   hidden:  { opacity: 0, y: 28 },
@@ -18,6 +18,79 @@ const fadeUp = {
 };
 
 /* ─── Data ────────────────────────────────────────────────────────────── */
+
+/* What We Offer — 4 pillar cards */
+const whatWeOffer = [
+  {
+    icon: Shield,
+    title: "Cybersecurity Training",
+    desc: "Hands-on, instructor-led training in offensive and defensive security — from beginner to advanced certifications.",
+    stat: "12+ Certifications",
+    color: "#1d4ed8",
+    bg: "#eff6ff",
+    link: "/courses",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Security",
+    desc: "Master AWS, Azure, and GCP security architectures with DevSecOps practices and certification pathways.",
+    stat: "3 Cloud Platforms",
+    color: "#7c3aed",
+    bg: "#f5f3ff",
+    link: "/courses",
+  },
+  {
+    icon: Monitor,
+    title: "Security Consulting",
+    desc: "End-to-end security advisory for organisations — gap analysis, risk assessment, and framework implementation.",
+    stat: "Enterprise Grade",
+    color: "#0f766e",
+    bg: "#f0fdfa",
+    link: "/contact",
+  },
+  {
+    icon: Users,
+    title: "Corporate Training",
+    desc: "Customised programs for teams of any size — on-site, virtual, or blended delivery with dedicated support.",
+    stat: "500+ Trained",
+    color: "#b45309",
+    bg: "#fffbeb",
+    link: "/organization",
+  },
+];
+
+/* Work Process — Cybersecurity style */
+const workProcess = [
+  {
+    step: "01",
+    icon: ClipboardList,
+    title: "Consultation",
+    desc: "We begin with a detailed consultation to understand your cybersecurity goals, current skill level, and training requirements.",
+    color: "#1d4ed8",
+  },
+  {
+    step: "02",
+    icon: Lightbulb,
+    title: "Strategy",
+    desc: "Our experts design a custom learning or security strategy tailored to your objectives, timeline, and certification targets.",
+    color: "#1d4ed8",
+  },
+  {
+    step: "03",
+    icon: Settings,
+    title: "Implementation",
+    desc: "We deliver training through live instructor-led sessions, hands-on labs, and real-world scenarios to ensure practical mastery.",
+    color: "#1d4ed8",
+  },
+  {
+    step: "04",
+    icon: Award,
+    title: "Final Result",
+    desc: "Learners achieve certifications, organisations gain a security-ready workforce, and everyone receives ongoing post-training support.",
+    color: "#1d4ed8",
+  },
+];
+
 const cyberServices = [
   {
     icon: Shield,
@@ -67,112 +140,12 @@ const trainingServices = [
     certs: ["CEH", "CISSP", "CompTIA Security+", "OSCP", "eJPT"],
   },
   {
-    icon: Database,
-    title: "Data Science Training",
-    tag: "Analytics",
-    tagColor: "#0f766e",
-    desc: "Machine learning, Python analytics, and AI-powered security applications — from data fundamentals to professional certification through IBM, Google, and AWS.",
-    certs: ["IBM Data Science", "Google Analytics", "AWS ML Specialty"],
-  },
-  {
     icon: Cloud,
     title: "Cloud Computing Training",
     tag: "Infrastructure",
     tagColor: "#0f766e",
     desc: "AWS, Azure, and GCP certification pathways combined with cloud security architecture and DevSecOps best practices for modern infrastructure teams.",
     certs: ["AWS Solutions Architect", "Azure AZ-500", "GCP Pro Security"],
-  },
-  {
-    icon: Cpu,
-    title: "Computer Hardware Engineering",
-    tag: "Foundations",
-    tagColor: "#0f766e",
-    desc: "Systems architecture, network hardware, infrastructure design, and IoT security — fully aligned to CompTIA A+, Network+, Server+, and Cisco CCNA.",
-    certs: ["CompTIA A+", "Network+", "Server+", "Cisco CCNA"],
-  },
-];
-
-const audiences = [
-  { icon: Users,        title: "Individuals",   desc: "Career changers, graduates, and professionals seeking cybersecurity certifications and job placement." },
-  { icon: Building,     title: "Enterprises",   desc: "Corporate teams needing security upskilling, compliance training, or custom program delivery." },
-  { icon: GraduationCap,title: "Universities",  desc: "Embedded cybersecurity modules and blended learning solutions for higher education institutions." },
-  { icon: Target,       title: "Government",    desc: "Tailored programs for public sector agencies requiring cleared, compliant, and mission-aligned training." },
-];
-
-// /* From About page — Four Pillars */
-// const pillars = [
-//   {
-//     icon:    Lock,
-//     color:   "#1d4ed8",
-//     bg:      "#eff6ff",
-//     tag:     "Core Training",
-//     name:    "Cybersecurity",
-//     tagline: "Offensive & Defensive Security",
-//     desc:    "From ethical hacking to SOC operations — our cybersecurity track prepares you for roles as a penetration tester, security analyst, or incident responder with industry-recognised certifications.",
-//     link:    "/courses/cybersecurity",
-//     cta:     "Explore Cybersecurity",
-//   },
-//   {
-//     icon:    Database,
-//     color:   "#0f766e",
-//     bg:      "#f0fdfa",
-//     tag:     "Data & AI",
-//     name:    "Data Science",
-//     tagline: "Analytics & Machine Learning",
-//     desc:    "Master Python, machine learning, and AI-powered security analytics. Build real models, automate threat intelligence workflows, and earn certifications from IBM, Google, and AWS.",
-//     link:    "/courses/data-science",
-//     cta:     "Explore Data Science",
-//   },
-//   {
-//     icon:    Cloud,
-//     color:   "#7c3aed",
-//     bg:      "#f5f3ff",
-//     tag:     "Infrastructure",
-//     name:    "Cloud Computing",
-//     tagline: "AWS · Azure · GCP",
-//     desc:    "Deploy and secure cloud infrastructure at scale. Understand AWS, Azure, and GCP architecture, implement zero-trust access, and pass the world's most respected cloud certifications.",
-//     link:    "/courses/cloud-computing",
-//     cta:     "Explore Cloud",
-//   },
-//   {
-//     icon:    Cpu,
-//     color:   "#b45309",
-//     bg:      "#fffbeb",
-//     tag:     "Hardware & Networking",
-//     name:    "Computer Hardware",
-//     tagline: "CompTIA A+ · Network+ · CCNA",
-//     desc:    "Understand the physical backbone of IT — from systems architecture and network infrastructure to IoT security. Ideal for CompTIA A+, Network+, Server+, and Cisco CCNA candidates.",
-//     link:    "/courses/computer-hardware",
-//     cta:     "Explore Hardware",
-//   },
-// ];
-
-/* From About page — Credentials */
-const credentials = [
-  { icon: Shield,        label: "Cybersecurity Experts"          },
-  { icon: GraduationCap, label: "Certified Instructors"          },
-  { icon: Globe,         label: "Global Training Delivery"       },
-  { icon: Building,      label: "Institutional Collaborator"     },
-  { icon: Target,        label: "Offensive Security Specialists" },
-];
-
-/* From About page — Institutional / community partnerships */
-const partners = [
-  {
-    icon: GraduationCap,
-    title: "IT & Cybersecurity Professionals",
-    desc: "Advanced training programs designed for professionals looking to upskill in cybersecurity, cloud security, and real-world threat defense."
-  },
-  {
-    icon: Users,
-    title: "Students & Emerging Talent",
-    desc: "Supporting students and recent graduates with foundational skills, mentorship, and guided entry into cybersecurity careers."
-  },
-  { icon: Users,         title: "Corporate Organisations", desc: "Workplace workshops that reduce breach risk and build a security-first culture." },
-  {
-    icon: Mic,
-    title: "SOC & Blue Team Training",
-    desc: "Hands-on experience in Security Operations Center workflows, threat detection, incident response, and real-world defense scenarios."
   },
 ];
 
@@ -182,19 +155,17 @@ const partners = [
 const Services = () => (
   <Layout>
 
-    {/* ══ HERO ══════════════════════════════════════════════════════════ */}
+    {/* ══ HERO ══ */}
     <section className="bg-white px-2 sm:px-3 pt-2 pb-0">
       <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden min-h-[260px] sm:min-h-[340px] lg:min-h-[440px]">
         <img src={heroImage} alt="Services" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-black/80" />
-        {/* Decorative stripes */}
         <div className="absolute top-0 right-0 h-full flex items-center gap-1.5 pr-6 sm:pr-10 pointer-events-none">
           <div className="w-2.5 rounded-full bg-blue-500" style={{ height: "55%" }} />
           <div className="w-2.5 rounded-full bg-blue-700/60" style={{ height: "38%" }} />
         </div>
         <div className="relative z-10 flex flex-col justify-end min-h-[260px] sm:min-h-[340px] lg:min-h-[440px] px-6 sm:px-10 lg:px-16 pb-8 sm:pb-12 pt-20 sm:pt-28">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="flex items-center gap-2 mb-4">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="flex items-center gap-2 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block" />
             <span className="text-blue-400 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>What We Do</span>
           </motion.div>
@@ -216,6 +187,117 @@ const Services = () => (
               <span className="text-white text-xs font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Services</span>
             </div>
           </motion.div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ WHAT WE OFFER ════════════════════════════════════════════════ */}
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-[1200px]">
+        <div className="text-center mb-14">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
+            <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>What We Offer</span>
+          </div>
+          <h2 className="text-[#0a0f1e] font-bold text-3xl sm:text-4xl lg:text-5xl mb-3" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
+            Everything You Need to Succeed
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            From certification prep and live labs to consulting and enterprise training — we support your entire cybersecurity journey.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {whatWeOffer.map((item, i) => (
+            <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <Link to={item.link} className="group block h-full no-underline">
+                <div className="relative h-full flex flex-col rounded-2xl p-6 border border-gray-100 bg-white hover:-translate-y-1.5 hover:shadow-xl hover:border-blue-100 transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: item.color }} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 shrink-0"
+                    style={{ background: item.bg, border: `1px solid ${item.color}20` }}>
+                    <item.icon size={22} style={{ color: item.color }} />
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>
+                    {item.stat}
+                  </p>
+                  <h3 className="text-[#0a0f1e] font-bold text-lg leading-snug mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</p>
+                  <div className="flex items-center gap-2 mt-5 pt-4 border-t border-gray-50">
+                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>
+                      Learn More
+                    </span>
+                    <ArrowUpRight size={13} style={{ color: item.color }} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ══ WORK PROCESS — Cybersecurity Style ═══════════════════════════ */}
+    <section className="py-16 sm:py-24 bg-[#f8fafc]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-[1200px]">
+        <div className="text-center mb-14">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
+            <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>// Our Work Process</span>
+          </div>
+          <h2 className="text-[#0a0f1e] font-bold text-3xl sm:text-4xl lg:text-5xl mb-3" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
+            Our Proven <span className="text-blue-600">Work Process</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            A structured, proven approach to delivering cybersecurity training and consulting that gets results every time.
+          </p>
+        </div>
+
+        {/* Desktop — horizontal connected steps */}
+        <div className="hidden lg:block relative">
+          {/* Connector line */}
+          <div className="absolute top-[52px] left-[12%] right-[12%] h-0.5 bg-gray-200 z-0" />
+          {/* Blue progress line (for visual effect) */}
+          <div className="absolute top-[52px] left-[12%] w-[38%] h-0.5 bg-blue-500 z-0" />
+
+          <div className="grid grid-cols-4 gap-6 relative z-10">
+            {workProcess.map((step, i) => (
+              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                className="flex flex-col items-center text-center">
+                {/* Circle with number */}
+                <div className="relative mb-6">
+                  <div className="w-[104px] h-[104px] rounded-full flex flex-col items-center justify-center shadow-lg border-4 border-white"
+                    style={{ background: i <= 1 ? "#1d4ed8" : "#e5e7eb" }}>
+                    <step.icon size={28} className={i <= 1 ? "text-white" : "text-gray-500"} />
+                    <span className={`text-[10px] font-bold mt-1 ${i <= 1 ? "text-white/70" : "text-gray-400"}`}
+                      style={{ fontFamily: "'DM Sans', sans-serif" }}>{step.step}</span>
+                  </div>
+                </div>
+                <h3 className="text-[#0a0f1e] font-bold text-lg mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile — vertical steps */}
+        <div className="lg:hidden space-y-0">
+          {workProcess.map((step, i) => (
+            <div key={i} className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-md border-4 border-white shrink-0"
+                  style={{ background: i <= 1 ? "#1d4ed8" : "#e5e7eb" }}>
+                  <step.icon size={18} className={i <= 1 ? "text-white" : "text-gray-500"} />
+                </div>
+                {i < workProcess.length - 1 && <div className="w-0.5 bg-gray-200 flex-1 my-2" />}
+              </div>
+              <div className="pb-8 pt-1">
+                <p className="text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step.step}</p>
+                <h3 className="text-[#0a0f1e] font-bold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -317,237 +399,6 @@ const Services = () => (
       </div>
     </section>
 
-    {/* ══ PHILOSOPHY QUOTE ════════════════════════════════════════════ */}
-    <section className="bg-[#0a0f1e] py-16 sm:py-20 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none opacity-5"
-        style={{ backgroundImage: "repeating-linear-gradient(45deg,rgba(255,255,255,0.5) 0px,rgba(255,255,255,0.5) 1px,transparent 1px,transparent 60px)" }} />
-      <div className="container mx-auto px-6 sm:px-12 lg:px-20 max-w-4xl text-center relative z-10">
-        <Quote size={36} className="text-blue-500/40 mx-auto mb-6" />
-        <motion.blockquote
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-white font-bold leading-snug mb-6"
-          style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "clamp(22px, 3.2vw, 42px)" }}
-        >
-          "Cybersecurity is not a product you buy — it's a mindset you build. We train people to think like attackers, so they can defend like professionals."
-        </motion.blockquote>
-        <p className="text-blue-400 font-bold text-sm uppercase tracking-widest" style={{ fontFamily: "'DM Sans', sans-serif" }}>— BYTITUDE Team</p>
-      </div>
-    </section>
-
-    {/* ══ FOUR CORE DISCIPLINES (pillars from About) ═══════════════════
-    <section className="py-20 sm:py-28 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
-        <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
-            <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Four Disciplines</span>
-          </div>
-          <h2 className="text-[#0a0f1e] font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-3" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
-            Our Core Training Areas
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            Each discipline is independently structured but united by a single mission — educate, certify, and elevate the professionals the industry needs.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {pillars.map((p, i) => (
-            <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="bg-white rounded-3xl p-8 sm:p-10 border-2 border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: p.bg }}>
-                  <p.icon size={26} style={{ color: p.color }} />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 text-right max-w-[140px] leading-tight" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  {p.tag}
-                </span>
-              </div>
-              <h3 className="text-[#0a0f1e] font-bold leading-tight mb-0.5" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "clamp(20px, 2.2vw, 26px)" }}>
-                {p.name}
-              </h3>
-              <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {p.tagline}
-              </p>
-              <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {p.desc}
-              </p>
-              <Link to={p.link} className="inline-flex items-center gap-2.5 no-underline w-fit">
-                <span className="text-[#0a0f1e] text-xs font-bold uppercase tracking-widest hover:text-blue-600 transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  {p.cta}
-                </span>
-                <span className="w-7 h-7 rounded-full bg-[#0a0f1e] flex items-center justify-center hover:bg-blue-600 transition-colors">
-                  <ArrowUpRight size={12} className="text-white" />
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section> */}
-
-    {/* ══ WHO WE SERVE ════════════════════════════════════════════════ */}
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-[1200px]">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
-            <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Who We Serve</span>
-          </div>
-          <h2 className="text-[#0a0f1e] font-bold text-3xl sm:text-4xl mb-3" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
-            Built for Every Audience
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {audiences.map((a, i) => (
-            <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="flex flex-col items-start p-6 rounded-2xl border border-gray-100 bg-white hover:-translate-y-1 hover:shadow-md hover:border-blue-100 transition-all duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4 shrink-0">
-                <a.icon size={21} className="text-blue-600" />
-              </div>
-              <h3 className="text-[#0a0f1e] font-bold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{a.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{a.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ══ CREDENTIALS (from About) ════════════════════════════════════ */}
-    <section className="py-16 sm:py-20 bg-[#f8fafc]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
-            <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Credentials</span>
-          </div>
-          <h2 className="text-[#0a0f1e] font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
-            Background & Expertise
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-          {credentials.map((c, i) => (
-            <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="flex flex-col items-center text-center p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-white">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-3">
-                <c.icon size={22} className="text-blue-600" />
-              </div>
-              <span className="text-sm font-semibold text-[#0a0f1e] leading-snug" style={{ fontFamily: "'DM Sans', sans-serif" }}>{c.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ══ INSTITUTIONAL PARTNERSHIPS (from About) ═════════════════════ */}
-    <section className="py-20 sm:py-28 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* Image with floating stat */}
-          <motion.div initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }}
-            className="relative">
-            <div className="rounded-3xl overflow-hidden" style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.10)" }}>
-              <img src={timsImage} alt="Institutional Work" className="w-full h-72 sm:h-96 object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1e]/70 to-transparent" />
-            </div>
-            <div className="absolute bottom-6 left-6 bg-white rounded-2xl px-5 py-4" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
-              <p className="text-3xl font-bold text-blue-600" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>500+</p>
-              <p className="text-xs text-gray-400 uppercase tracking-widest" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lives Impacted</p>
-            </div>
-          </motion.div>
-
-          {/* Text + partner grid */}
-          <motion.div initial={{ opacity: 0, x: 28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
-              <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Who We Work With</span>
-            </div>
-            <h2 className="text-[#0a0f1e] font-bold leading-tight mb-4"
-              style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "clamp(26px, 3.2vw, 44px)" }}>
-              Institutional &<br />Community Partnerships
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              We partner with schools, universities, corporations, and government organisations to deliver cybersecurity training that blends technical rigour, mindset development, and real-world readiness.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {partners.map((w, i) => (
-                <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                  className="flex items-start gap-3 bg-gray-50 rounded-2xl p-5 border border-gray-100">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                    <w.icon size={18} className="text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-[#0a0f1e] font-bold text-sm mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{w.title}</p>
-                    <p className="text-gray-400 text-xs leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{w.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-
-    {/* ══ WHY BYTITUDE (from About — Why Choose Us) ═══════════════════ */}
-    <section className="py-20 sm:py-24 bg-[#535761] relative overflow-hidden">
-      {/* <div className="absolute inset-0 opacity-[0.04]"
-        style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "40px 40px" }} /> */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block" />
-              <span className="text-blue-400 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Why BYTITUDE</span>
-            </div>
-            <h2 className="text-white font-bold leading-tight mb-6"
-              style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 46px)" }}>
-              What Sets Us<br />Apart
-            </h2>
-            <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              We don't just teach theory. We build professionals the industry actually wants to hire — with hands-on labs, expert mentors, and globally recognised certifications.
-            </p>
-            <ul className="space-y-4">
-              {[
-                "Expert instructors with 10+ years of active industry experience",
-                "Real lab environments simulating actual attack and defense scenarios",
-                "Globally recognised certifications — CEH, CISSP, CompTIA, AWS, Azure",
-                "Corporate and enterprise training with flexible delivery options",
-                "Job placement support including CV reviews and mock interviews",
-                "Blended online and on-site learning formats for every learner",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle size={16} className="text-blue-400 shrink-0 mt-0.5" />
-                  <span className="text-white/75 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <motion.div initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }}
-            className="hidden lg:block relative">
-            <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: "4/5" }}>
-              <img src={aboutImage} alt="BYTITUDE training" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e]/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-xl">
-                <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
-                    <Zap size={18} className="text-white" />
-                  </span>
-                  <div>
-                    <p className="text-[#0a0f1e] font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>Career-Ready in Months</p>
-                    <p className="text-gray-400 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>From beginner to certified professional</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-
     {/* ══ DUAL CTA ════════════════════════════════════════════════════ */}
     <section className="py-14 bg-[#0a0f1e] relative overflow-hidden border-t border-white/5">
       <div className="container mx-auto px-4 max-w-[1200px] relative z-10">
@@ -559,10 +410,8 @@ const Services = () => (
               Start your cybersecurity career today. Enrol in a certification track, access live labs, and get mentored to job-readiness.
             </p>
             <Link to="/register" className="no-underline">
-              <button
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-full px-6 py-2.5 border-none cursor-pointer transition-all active:scale-95"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-full px-6 py-2.5 border-none cursor-pointer transition-all active:scale-95"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Register Now <ArrowUpRight size={14} />
               </button>
             </Link>
@@ -574,10 +423,8 @@ const Services = () => (
               Request a security assessment or customised training program for your team, department, or entire organisation.
             </p>
             <Link to="/contact" className="no-underline">
-              <button
-                className="inline-flex items-center gap-2 border border-blue-400/50 text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 font-bold text-sm rounded-full px-6 py-2.5 bg-transparent cursor-pointer transition-all active:scale-95"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <button className="inline-flex items-center gap-2 border border-blue-400/50 text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 font-bold text-sm rounded-full px-6 py-2.5 bg-transparent cursor-pointer transition-all active:scale-95"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Get a Consultation <ArrowUpRight size={14} />
               </button>
             </Link>

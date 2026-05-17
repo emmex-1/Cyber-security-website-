@@ -10,7 +10,7 @@ const testimonials = [
     jobTitle: "Security Analyst",
     location: "Lagos, Nigeria",
     track: "CYBERSECURITY — CEH TRACK",
-    trackIcon: Lock,
+    // trackIcon: Lock,
     rating: 5,
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     jobTitle: "Security Engineer",
     location: "Abuja, Nigeria",
     track: "CLOUD COMPUTING — AWS TRACK",
-    trackIcon: Cloud,
+    // trackIcon: Cloud,
     rating: 5,
   },
   {
@@ -30,7 +30,7 @@ const testimonials = [
     jobTitle: "Security Analyst",
     location: "Port Harcourt, Nigeria",
     track: "CYBERSECURITY — SOC TRACK",
-    trackIcon: Shield,
+    // trackIcon: Shield,
     rating: 5,
   },
   {
@@ -40,7 +40,7 @@ const testimonials = [
     jobTitle: "Threat Intelligence Analyst",
     location: "Ibadan, Nigeria",
     track: "DATA SCIENCE — SECURITY TRACK",
-    trackIcon: Database,
+    // trackIcon: Database,
     rating: 5,
   },
   {
@@ -50,7 +50,7 @@ const testimonials = [
     jobTitle: "Network Security Technician",
     location: "Abeokuta, Nigeria",
     track: "HARDWARE — NETWORK+ TRACK",
-    trackIcon: Cpu,
+    // trackIcon: Cpu,
     rating: 5,
   },
 ];
@@ -120,7 +120,7 @@ const TestimonialsSlider = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {display.map((t, i) => {
-            const TrackIcon = t.trackIcon;
+            // const TrackIcon = t.trackIcon;
 
             return (
               <div
@@ -128,10 +128,8 @@ const TestimonialsSlider = () => {
                 className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6"
               >
                 {/* Track badge */}
-                <div className="inline-flex items-center gap-2 border border-gray-200 rounded-full px-3 py-1.5 mb-4">
-                  <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
-                    <TrackIcon size={10} className="text-white" />
-                  </div>
+                <div className="inline-flex items-center border border-gray-200 rounded-full px-3 py-1.5 mb-4">
+
                   <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
                     {t.track}
                   </span>

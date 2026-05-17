@@ -5,7 +5,7 @@ import {
   ArrowUpRight, Shield, TrendingUp, Users,
   Mic, BookOpen, CheckCircle,
   ChevronDown, ChevronLeft, ChevronRight,
-  Lock, Cloud, Database, Cpu, Monitor, AlertTriangle, Eye, Network,
+  Lock, Cloud, Monitor, AlertTriangle, Eye, Network,
   Clock, GraduationCap, Award, Layers, Rocket,
 } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -14,18 +14,14 @@ import NewsletterForm from "@/components/NewsletterForm";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
 import { blogPosts } from "../data/blogPosts";
 
-// Slide-specific hero images — each slide has its own background
-import heroSlide1 from "/images/byte.jpeg";   // slide 1 — general IT training
-import heroSlide2 from "/images/byt.jpeg";    // slide 2 — cybersecurity
-import heroSlide3 from "/images/byte.jpeg";  // slide 3 — corporate/enterprise
+import heroSlide1 from "/images/byte.jpeg";
+import heroSlide2 from "/images/byt.jpeg";
+import heroSlide3 from "/images/byte.jpeg";
 
 import aboutImage from "/images/byt.jpeg";
 import faqImage   from "/images/byte.jpeg";
-import timImage  from "/images/hero-home.jpg";
-import bytImage  from "/images/laps.png";
 import byteImage  from "/images/office.png";
 
-/* ─── Fade-up variant ────────────────────────────────────────────────────── */
 const fadeUp = {
   hidden:  { opacity: 0, y: 30 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
@@ -49,7 +45,7 @@ const heroSlides = [
     h1: "Earn Certifications",
     h2: "with Practical Skills.",
     accentSecond: true,
-    sub: "Master cybersecurity, cloud computing, and data science with hands-on labs, expert instructors, and industry-recognized certifications.",
+    sub: "Master cybersecurity and cloud computing with hands-on labs, expert instructors, and industry-recognized certifications.",
     cta:  { label: "Register Now",  href: "/register" },
     cta2: { label: "View Courses",  href: "/courses"  },
     overlay: "from-black/90 via-black/70 to-black/30",
@@ -78,19 +74,19 @@ const heroSlides = [
   },
 ];
 
+/* Only Cybersecurity & Cloud courses */
 const featuredPaths = [
-  { title: "Cyber Security 101",       level: "Beginner",     tag: null,      hours: 40, modules: 12, gradient: "from-blue-900 to-blue-700",     image: "/images/hero-home.jpg",  link: "/courses"    },
-  { title: "Ethical Hacking & CEH",    level: "Intermediate", tag: null,      hours: 60, modules: 16, gradient: "from-slate-800 to-indigo-900",   image: "/images/office.png",     link: "/courses"    },
-  { title: "SOC Analyst Level 1",      level: "Beginner",     tag: null,      hours: 35, modules: 10, gradient: "from-teal-900 to-cyan-800",      image: "/images/byte.jpeg",      link: "/courses"    },
-  { title: "CompTIA Security+",        level: "Intermediate", tag: null,      hours: 45, modules: 14, gradient: "from-red-900 to-rose-800",       image: "/images/laps.png",       link: "/courses"    },
-  { title: "Cloud Security (AWS)",     level: "Advanced",     tag: null,      hours: 50, modules: 13, gradient: "from-orange-900 to-amber-800",   image: "/images/hero-home.jpg",  link: "/courses"  },
-  { title: "Red Teaming",              level: "Advanced",     tag: null,      hours: 70, modules: 18, gradient: "from-rose-950 to-red-800",       image: "/images/byte.jpeg",      link: "/courses"    },
-  { title: "Data Science for Security",level: "Intermediate", tag: null,      hours: 55, modules: 15, gradient: "from-emerald-900 to-green-700",  image: "/images/office.png",     link: "/courses"     },
-  { title: "CompTIA Network+",         level: "Beginner",     tag: null,      hours: 38, modules: 11, gradient: "from-violet-900 to-purple-700",  image: "/images/byte.jpeg",      link: "/courses" },
-  { title: "CISSP Certification",      level: "Advanced",     tag: null,      hours: 80, modules: 20, gradient: "from-sky-900 to-blue-800",       image: "/images/byt.jpeg",       link: "/courses"    },
+  { title: "Cyber Security 101",       level: "Beginner",     tag: null,      hours: 40, modules: 12, gradient: "from-blue-900 to-blue-700",     image: "/images/hero-home.jpg",  link: "/courses#cyber-101"    },
+  { title: "Ethical Hacking & CEH",    level: "Intermediate", tag: "BESTSELLER", hours: 60, modules: 16, gradient: "from-slate-800 to-indigo-900",   image: "/images/office.png",     link: "/courses#ceh"    },
+  { title: "SOC Analyst Level 1",      level: "Beginner",     tag: null,      hours: 35, modules: 10, gradient: "from-teal-900 to-cyan-800",      image: "/images/byte.jpeg",      link: "/courses#soc"    },
+  { title: "CompTIA Security+",        level: "Intermediate", tag: null,      hours: 45, modules: 14, gradient: "from-red-900 to-rose-800",       image: "/images/laps.png",       link: "/courses#security-plus" },
+  { title: "Cloud Security (AWS)",     level: "Advanced",     tag: "HOT",     hours: 50, modules: 13, gradient: "from-orange-900 to-amber-800",   image: "/images/hero-home.jpg",  link: "/courses#cloud-aws"  },
+  { title: "Red Teaming",              level: "Advanced",     tag: null,      hours: 70, modules: 18, gradient: "from-rose-950 to-red-800",       image: "/images/byte.jpeg",      link: "/courses#red-team"    },
+  { title: "CISSP Certification",      level: "Advanced",     tag: "PREMIUM", hours: 80, modules: 20, gradient: "from-sky-900 to-blue-800",       image: "/images/byt.jpeg",       link: "/courses#cissp"    },
+  { title: "CompTIA Network+",         level: "Beginner",     tag: null,      hours: 38, modules: 11, gradient: "from-violet-900 to-purple-700",  image: "/images/byte.jpeg",      link: "/courses#network-plus" },
+  { title: "Azure Security AZ-500",    level: "Advanced",     tag: null,      hours: 55, modules: 14, gradient: "from-cyan-900 to-blue-800",      image: "/images/office.png",     link: "/courses#cloud-aws"  },
 ];
 
-/* ── Cybersecurity blog posts for the homepage preview ─────────────────── */
 const cyberBlogPosts = [
   {
     title:  "Top 10 Cybersecurity Threats Every Professional Must Know in 2025",
@@ -112,6 +108,7 @@ const cyberBlogPosts = [
   },
 ];
 
+/* Only Cybersecurity & Cloud outlines */
 const courseOutlines = [
   {
     icon: Lock, title: "Cybersecurity", color: "#1d4ed8", bg: "#eff6ff",
@@ -126,22 +123,7 @@ const courseOutlines = [
       { name: "Compliance & Governance",               topics: ["NIST, ISO 27001 & CIS Frameworks", "GDPR & Data Protection Regulations", "Risk Assessment & Management", "Security Policy Development"] },
       { name: "Certification Exam Prep",               topics: ["CEH (Certified Ethical Hacker) — EC-Council", "CISSP — ISC²", "CompTIA Security+ SY0-701", "OSCP — Offensive Security", "eJPT — eLearnSecurity"] },
     ],
-    link: "/courses/cybersecurity",
-  },
-  {
-    icon: Database, title: "Data Science", color: "#0f766e", bg: "#f0fdfa",
-    tagline: "Turn raw data into actionable intelligence", duration: "3–5 months",
-    overview: "Master data science with a cybersecurity lens. Build ML pipelines, detect anomalies in logs, and automate threat intelligence — while earning certifications from Google, IBM, and AWS.",
-    outcomes: ["Build real ML models from scratch", "Automate threat intelligence workflows", "Create security dashboards & reports", "Earn IBM & Google Data certifications"],
-    certifications: ["IBM Data Science", "Google Data Analytics", "AWS ML Specialty", "Microsoft DP-100"],
-    modules: [
-      { name: "Python & Data Fundamentals",       topics: ["Python for Data Analysis (Jupyter, VS Code)", "Pandas, NumPy & Matplotlib Mastery", "Data Cleaning, Wrangling & Transformation", "SQL for Data Analysts", "APIs & Web Scraping for Data Collection"] },
-      { name: "Statistics & Machine Learning",    topics: ["Descriptive & Inferential Statistics", "Supervised Learning (Regression, Classification)", "Unsupervised Learning (Clustering, PCA)", "Scikit-learn Model Training & Evaluation", "Feature Engineering & Selection"] },
-      { name: "Security Analytics",               topics: ["SIEM Log Analytics & Correlation Rules", "Anomaly Detection in Network Traffic", "Threat Intelligence Automation with Python", "Building Intrusion Detection Systems", "Fraud Detection & Behavioral Analysis"] },
-      { name: "Data Visualization & Reporting",   topics: ["Tableau & Power BI Dashboards", "Matplotlib & Seaborn Charts", "Executive Security Reporting", "Real-time Alert Dashboards"] },
-      { name: "Certification Exam Prep",          topics: ["IBM Data Science Professional Certificate", "Google Data Analytics Certificate", "AWS Machine Learning Specialty", "Microsoft Azure DP-100"] },
-    ],
-    link: "/courses/data-science",
+    link: "/courses#cyber-101",
   },
   {
     icon: Cloud, title: "Cloud Computing", color: "#7c3aed", bg: "#f5f3ff",
@@ -156,22 +138,7 @@ const courseOutlines = [
       { name: "Cloud Monitoring & Incident Response",  topics: ["AWS CloudTrail & GuardDuty", "Azure Sentinel SIEM", "GCP Security Command Center", "Cloud Forensics & Incident Response", "Automated Remediation Workflows"] },
       { name: "Certification Exam Prep",               topics: ["AWS Solutions Architect Associate/Professional", "AWS Security Specialty (SCS-C02)", "Azure Security Engineer AZ-500", "GCP Professional Cloud Security Engineer", "CompTIA Cloud+ CV0-004"] },
     ],
-    link: "/courses/cloud-computing",
-  },
-  {
-    icon: Cpu, title: "Computer Hardware", color: "#b45309", bg: "#fffbeb",
-    tagline: "Master the physical backbone of IT", duration: "2–3 months",
-    overview: "Understand how computers actually work — from the silicon level to full enterprise infrastructure. Ideal for IT support professionals pursuing CompTIA A+ or Network+ certification.",
-    outcomes: ["Build, maintain & troubleshoot PCs", "Design enterprise network infrastructure", "Understand IoT security risks", "Pass CompTIA A+, Network+ & Server+"],
-    certifications: ["CompTIA A+", "CompTIA Network+", "CompTIA Server+", "Cisco CCNA"],
-    modules: [
-      { name: "Hardware Fundamentals",   topics: ["PC Components & System Architecture", "Motherboards, CPUs, RAM & Storage", "Power Supplies & Cooling Systems", "Storage Technologies (SSD, HDD, NVMe, RAID)", "Hardware Troubleshooting Techniques"] },
-      { name: "Networking Hardware",     topics: ["Routers, Switches, Hubs & Firewalls", "Cabling Standards (Cat5e, Cat6, Fiber)", "Physical Network Infrastructure Design", "Wireless Networks (WiFi 6, 802.11 Standards)", "Network Troubleshooting & Diagnostics"] },
-      { name: "Server Infrastructure",  topics: ["Server Hardware & Rack Configuration", "Virtualization with VMware & Hyper-V", "Storage Area Networks (SAN/NAS)", "Backup & Disaster Recovery Systems", "Data Center Infrastructure Basics"] },
-      { name: "IoT & Embedded Systems", topics: ["IoT Architecture, Protocols & Standards", "Raspberry Pi & Arduino Projects", "IoT Security Vulnerabilities & Mitigations", "Firmware Analysis Basics", "Smart Device Pentesting Introduction"] },
-      { name: "Certification Exam Prep",topics: ["CompTIA A+ Core 1 & Core 2 (220-1101/1102)", "CompTIA Network+ N10-009", "CompTIA Server+ SK0-005", "Cisco CCNA 200-301 Introduction"] },
-    ],
-    link: "/courses/computer-hardware",
+    link: "/courses#cloud-aws",
   },
 ];
 
@@ -190,7 +157,7 @@ const trustedLogos = [
 const marqueeTopics = [
   "Network Security","Endpoint Protection","Threat Intelligence","Penetration Testing",
   "Cloud Security","Ethical Hacking","SOC Analysis","Risk Assessment",
-  "Incident Response","Zero Trust","SIEM & SOAR","Data Science","Cloud Computing",
+  "Incident Response","Zero Trust","SIEM & SOAR","Cloud Computing",
 ];
 
 const whyChooseUs = [
@@ -228,31 +195,6 @@ function useCountUp(end: number, duration = 1800, started = false) {
   return count;
 }
 
-/* ── Ticker ──────────────────────────────────────────────────────────────── */
-const TickerBar = () => (
-  <motion.div
-    initial={{ opacity: 0, y: -10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.18, duration: 0.45 }}
-    className="flex items-center gap-2 sm:gap-3 mb-5 sm:mb-7 flex-wrap"
-  >
-    {[
-      { name: "Firewall Hits",      price: "1,024,124", change: "+1%", up: true, bg: "#00796B", label: "F" },
-      { name: "Malware Prevented",  price: "7,312",     change: "+6%", up: true, bg: "#C2185B", label: "M" },
-      { name: "Blocked Attacks",    price: "3,512",     change: "+2%", up: true, bg: "#4CAF50", label: "B" },
-    ].map((t) => (
-      <div key={t.name} className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
-        <span className="w-[18px] h-[18px] rounded-full flex items-center justify-center text-white shrink-0 font-bold"
-          style={{ background: t.bg, fontSize: 10 }}>{t.label}</span>
-        <span className="text-[#0B1C3A] font-bold text-[11px] sm:text-xs">{t.name}</span>
-        <span className="text-gray-600 text-[11px] sm:text-xs font-semibold">{t.price}</span>
-        <span className="text-[10px] sm:text-[11px] font-bold" style={{ color: t.up ? "#16a34a" : "#dc2626" }}>{t.change}</span>
-      </div>
-    ))}
-  </motion.div>
-);
-
-/* ── Stats bar ───────────────────────────────────────────────────────────── */
 const StatCounter = ({ s, started }: { s: typeof statsData[0]; started: boolean }) => {
   const n = useCountUp(s.end, 1600, started);
   return (
@@ -293,7 +235,6 @@ const HeroStatsBar = () => {
   );
 };
 
-/* ── Marquee ─────────────────────────────────────────────────────────────── */
 const MarqueeBar = () => (
   <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 py-3.5">
     <div className="flex items-center whitespace-nowrap" style={{ animation: "marquee 28s linear infinite", width: "max-content" }}>
@@ -308,7 +249,6 @@ const MarqueeBar = () => (
   </div>
 );
 
-/* ── Trusted By ──────────────────────────────────────────────────────────── */
 const TrustedBySection = () => {
   const doubled = [...trustedLogos, ...trustedLogos];
   return (
@@ -336,7 +276,6 @@ const TrustedBySection = () => {
   );
 };
 
-/* ── Featured Paths Slider ───────────────────────────────────────────────── */
 const FeaturedPathsSlider = () => {
   const [page, setPage] = useState(0);
   const perPage = 3;
@@ -439,7 +378,7 @@ const FeaturedPathsSlider = () => {
   );
 };
 
-/* ── Course Curriculum Preview ───────────────────────────────────────────── */
+/* ── Course Curriculum Preview — Cybersecurity & Cloud only ── */
 const CoursePreviewSection = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [activeMod, setActiveMod] = useState(0);
@@ -472,7 +411,6 @@ const CoursePreviewSection = () => {
         <AnimatePresence mode="wait">
           <motion.div key={activeTab} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}
             className="grid grid-cols-1 lg:grid-cols-5 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-            {/* Left */}
             <div className="lg:col-span-2 bg-[#f8fafc] p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-gray-100">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: c.bg, border: `1px solid ${c.color}20` }}>
@@ -509,7 +447,6 @@ const CoursePreviewSection = () => {
               </div>
             </div>
 
-            {/* Right */}
             <div className="lg:col-span-3 p-6 sm:p-8 bg-white">
               <AnimatePresence mode="wait">
                 <motion.div key={`${activeTab}-${activeMod}`} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.25 }}>
@@ -562,7 +499,6 @@ const CoursePreviewSection = () => {
   );
 };
 
-/* ── What We Offer ───────────────────────────────────────────────────────── */
 const OfferingsSection = () => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -572,92 +508,39 @@ const OfferingsSection = () => {
     { icon: GraduationCap, title: "Certification Programs",   desc: "Structured pathways to globally recognised certifications CEH, CISSP, CompTIA, AWS, Azure, and more.", stat: "12+ Certifications", link: "/courses" },
     { icon: Monitor,       title: "Virtual Labs & Sandboxes", desc: "24/7 access to isolated, hands-on lab environments where you practice real attack and defense scenarios safely.", stat: "100+ Live Labs",    link: "/training" },
     { icon: Users,         title: "Live Mentorship",          desc: "1-on-1 sessions with certified instructors career guidance, exam strategy, and code reviews from active professionals.", stat: "20+ Mentors",   link: "/services" },
-  {
-    icon: Rocket,
-    title: "Career Acceleration",
-    desc: "Develop job-ready cybersecurity skills through hands-on training, practical labs, and structured learning paths aligned with industry needs.",
-    stat: "Industry Ready",
-    link: "/courses"
-  },
+    { icon: Rocket,        title: "Career Acceleration",      desc: "Develop job-ready cybersecurity skills through hands-on training, practical labs, and structured learning paths aligned with industry needs.", stat: "Industry Ready", link: "/courses" },
   ];
 
   return (
-    <section
-      ref={ref}
-      className="relative py-20 sm:py-28 overflow-hidden bg-fixed bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/hero-bg.jpg')"
-      }}
-    >
-      <motion.div
-        className="absolute inset-0 w-full h-full will-change-transform"
-        style={{ y }}
-      >
-        <img
-          src={heroSlide1}
-          alt=""
-          className="w-full h-full object-cover object-center"
-          draggable={false}
-        />
+    <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden bg-fixed bg-cover bg-center">
+      <motion.div className="absolute inset-0 w-full h-full will-change-transform" style={{ y }}>
+        <img src={heroSlide1} alt="" className="w-full h-full object-cover object-center" draggable={false} />
       </motion.div>
-
       <div className="absolute inset-0 bg-[#0a0f1e]/90 z-[1]" />
-
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
         <div className="text-center mb-14">
-          <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            What We Offer
-          </span>
-
+          <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>What We Offer</span>
           <h2 className="text-white font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-4" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
             Everything You Need<br />to Succeed
           </h2>
-
           <p className="text-white/60 text-sm sm:text-base max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             From certification prep and live labs to mentorship and career acceleration, we support your entire journey.
           </p>
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {offerings.map((o, i) => (
-            <motion.div
-              key={i}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="h-full"
-            >
+            <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="h-full">
               <Link to={o.link} className="group block h-full no-underline">
-                <div
-                  className="relative h-full flex flex-col rounded-2xl p-6 sm:p-7 border border-white/10 hover:-translate-y-1.5 hover:border-blue-500/40 transition-all duration-300"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)"
-                  }}
-                >
+                <div className="relative h-full flex flex-col rounded-2xl p-6 sm:p-7 border border-white/10 hover:-translate-y-1.5 hover:border-blue-500/40 transition-all duration-300"
+                  style={{ background: "rgba(255,255,255,0.06)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}>
                   <div className="w-11 h-11 rounded-xl bg-blue-500/15 border border-blue-500/25 flex items-center justify-center mb-5 shrink-0 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
                     <o.icon size={20} className="text-blue-400 group-hover:text-white transition-colors duration-300" />
                   </div>
-
-                  <p className="text-blue-400 text-xs font-bold mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {o.stat}
-                  </p>
-
-                  <h3 className="text-white font-bold text-lg leading-snug mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {o.title}
-                  </h3>
-
-                  <p className="text-white/55 text-sm leading-relaxed flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {o.desc}
-                  </p>
-
+                  <p className="text-blue-400 text-xs font-bold mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{o.stat}</p>
+                  <h3 className="text-white font-bold text-lg leading-snug mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{o.title}</h3>
+                  <p className="text-white/55 text-sm leading-relaxed flex-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{o.desc}</p>
                   <div className="flex items-center gap-2 mt-6 pt-4 border-t border-white/10">
-                    <span className="text-blue-400 text-xs font-bold uppercase tracking-widest" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                      Learn More
-                    </span>
+                    <span className="text-blue-400 text-xs font-bold uppercase tracking-widest" style={{ fontFamily: "'DM Sans', sans-serif" }}>Learn More</span>
                     <ArrowUpRight size={13} className="text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
@@ -670,7 +553,7 @@ const OfferingsSection = () => {
   );
 };
 
-/* ── Services Section ────────────────────────────────────────────────────── */
+/* ── Services Section — Cybersecurity only ── */
 const ServicesSection = () => {
   const groups = [
     {
@@ -685,10 +568,8 @@ const ServicesSection = () => {
     {
       category: "Training Programs", categoryIcon: GraduationCap, accent: "#0f766e",
       items: [
-        { icon: Lock,     title: "Cybersecurity Training",        desc: "Offensive and defensive security — ethical hacking, penetration testing, SOC operations, and threat intelligence." },
-        { icon: Database, title: "Data Science Training",         desc: "Machine learning, Python analytics, and AI-powered security applications — from fundamentals to professional certification." },
-        { icon: Cloud,    title: "Cloud Computing Training",      desc: "AWS, Azure, and GCP certification pathways combined with cloud security architecture and DevSecOps best practices." },
-        { icon: Cpu,      title: "Computer Hardware Engineering", desc: "Systems architecture, network hardware, infrastructure design, and IoT security — aligned to CompTIA A+, Net+ and Server+." },
+        { icon: Lock,  title: "Cybersecurity Training",   desc: "Offensive and defensive security — ethical hacking, penetration testing, SOC operations, and threat intelligence." },
+        { icon: Cloud, title: "Cloud Computing Training", desc: "AWS, Azure, and GCP certification pathways combined with cloud security architecture and DevSecOps best practices." },
       ],
     },
   ];
@@ -741,7 +622,6 @@ const ServicesSection = () => {
   );
 };
 
-/* ── FAQ ─────────────────────────────────────────────────────────────────── */
 const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
   return (
@@ -803,7 +683,6 @@ const FAQSection = () => {
   );
 };
 
-/* ── Blog — cybersecurity content ────────────────────────────────────────── */
 const BlogSection = () => {
   const posts = cyberBlogPosts;
   const total = posts.length;
@@ -820,11 +699,7 @@ const BlogSection = () => {
   const visibleIndices = [0, 1, 2].map((off) => (active + off) % total);
 
   return (
-    <section
-      className="bg-white py-14 sm:py-20 overflow-x-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <section className="bg-white py-14 sm:py-20 overflow-x-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-14">
         <div className="flex items-center justify-between mb-8 sm:mb-10">
           <div>
@@ -844,28 +719,17 @@ const BlogSection = () => {
           </div>
         </div>
 
-        {/* Desktop 3-col */}
         <div className="hidden lg:grid grid-cols-3 gap-5">
           {visibleIndices.map((postIdx, i) => {
             const post = posts[postIdx];
             return (
               <Link key={`${post.title}-${active}-${i}`} to={post.link} className="block no-underline group">
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: i * 0.06 }}
-                  className="relative rounded-2xl overflow-hidden"
-                  style={{ height: 320 }}
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: i * 0.06 }}
+                  className="relative rounded-2xl overflow-hidden" style={{ height: 320 }}>
+                  <img src={post.image} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-300" />
                   <div className="absolute top-4 left-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-blue-600 px-3 py-1 rounded-full"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}>Cyber Insights</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-blue-600 px-3 py-1 rounded-full" style={{ fontFamily: "'DM Sans', sans-serif" }}>Cyber Insights</span>
                   </div>
                   <div className="absolute bottom-0 p-5">
                     <div className="flex items-center gap-2 mb-2">
@@ -884,7 +748,6 @@ const BlogSection = () => {
           })}
         </div>
 
-        {/* Mobile scroll */}
         <div className="lg:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4" style={{ scrollbarWidth: "none" }}>
           {posts.map((post, i) => (
             <Link key={i} to={post.link} className="min-w-[85%] snap-start no-underline shrink-0">
@@ -902,10 +765,7 @@ const BlogSection = () => {
 
         <div className="flex justify-center mt-10">
           <Link to="/resources" className="no-underline">
-            <button
-              className="inline-flex items-center gap-3 bg-[#0a0f1e] hover:bg-blue-900 text-white font-bold text-sm rounded-full pl-6 pr-2 py-3 transition-all active:scale-95 border-none cursor-pointer"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
+            <button className="inline-flex items-center gap-3 bg-[#0a0f1e] hover:bg-blue-900 text-white font-bold text-sm rounded-full pl-6 pr-2 py-3 transition-all active:scale-95 border-none cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               See All Articles
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 shrink-0"><ArrowUpRight size={14} className="text-white" /></span>
             </button>
@@ -916,25 +776,14 @@ const BlogSection = () => {
   );
 };
 
-/* ── Newsletter CTA ──────────────────────────────────────────────────────── */
 const YoutubeCTABanner = () => (
   <section className="bg-[#f8fafc] px-3 sm:px-4 lg:px-6 py-8 sm:py-10">
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.65 }}
-      className="relative w-full max-w-7xl mx-auto rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]"
-    >
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }}
+      className="relative w-full max-w-7xl mx-auto rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]">
       <img src={byteImage} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
       <div className="absolute inset-0 bg-black/80" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-12 lg:px-16 py-10 sm:py-14">
-        <SectionHeading
-          label="Stay Connected"
-          title="Join Our Community"
-          description="Get weekly tips, workshop announcements, and resources delivered to your inbox."
-          light={true}
-        />
+        <SectionHeading label="Stay Connected" title="Join Our Community" description="Get weekly tips, workshop announcements, and resources delivered to your inbox." light={true} />
         <div className="mt-6 w-full max-w-xl"><NewsletterForm dark={true} /></div>
       </div>
     </motion.div>
@@ -942,7 +791,7 @@ const YoutubeCTABanner = () => (
 );
 
 /* ══════════════════════════════════════════════════════════════════════════
-   HERO — 3 slides, each with its own background image
+   HERO — Fixed height, no over-extension
 ══════════════════════════════════════════════════════════════════════════ */
 const HeroSection = () => {
   const [slide, setSlide] = useState(0);
@@ -973,9 +822,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative bg-[#050810] pb-0">
-      <div className="relative min-h-[100vh] overflow-hidden">
+      {/* Fixed height hero — 85vh on desktop, full on mobile */}
+      <div className="relative overflow-hidden" style={{ height: "clamp(600px, 85vh, 900px)" }}>
 
-        {/* ── Per-slide background image (cross-fades) ── */}
         <AnimatePresence mode="wait">
           <motion.img
             key={`bg-${slide}`}
@@ -989,7 +838,6 @@ const HeroSection = () => {
           />
         </AnimatePresence>
 
-        {/* ── Per-slide colour overlay ── */}
         <AnimatePresence mode="wait">
           <motion.div
             key={`ov-${slide}`}
@@ -1001,36 +849,24 @@ const HeroSection = () => {
           />
         </AnimatePresence>
 
-        {/* Constant dark base so text is always readable */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* ── Content — padding-right increased on mobile to avoid arrow overlap ── */}
-        <div className="relative z-10 flex items-start min-h-[100vh] px-6 sm:px-12 lg:px-20 pr-20 sm:pr-24 lg:pr-20 pt-28 sm:pt-36 pb-44 sm:pb-52">
+        <div className="relative z-10 flex items-start h-full px-6 sm:px-12 lg:px-20 pr-20 sm:pr-24 lg:pr-20 pt-24 sm:pt-32 pb-32 sm:pb-40">
           <div className="max-w-2xl w-full">
-            <TickerBar />
             <AnimatePresence mode="wait" custom={dir}>
               <motion.div key={slide} custom={dir} variants={textVariants} initial="enter" animate="center" exit="exit">
-                <p
-                  className="text-blue-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 sm:mb-5"
-                  style={{ fontFamily: "'Lato', sans-serif" }}
-                >{s.badge}</p>
-                <h1
-                  className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-tight mb-5 sm:mb-6"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
+                <p className="text-blue-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 sm:mb-5"
+                  style={{ fontFamily: "'Lato', sans-serif" }}>{s.badge}</p>
+                <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-tight mb-5 sm:mb-6"
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
                   {s.h1}<br />
                   {s.accentSecond ? <span className="text-blue-400">{s.h2}</span> : s.h2}
                 </h1>
-                <p
-                  className="text-white/75 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed"
-                  style={{ fontFamily: "'Lato', sans-serif" }}
-                >{s.sub}</p>
+                <p className="text-white/75 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed"
+                  style={{ fontFamily: "'Lato', sans-serif" }}>{s.sub}</p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link to={s.cta.href} className="w-full sm:w-auto">
-                    <button
-                      className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white rounded-full font-bold text-sm px-7 py-2.5 transition-all active:scale-95 border-none cursor-pointer"
-                      style={{ fontFamily: "'Lato', sans-serif" }}
-                    >
+                    <button className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white rounded-full font-bold text-sm px-7 py-2.5 transition-all active:scale-95 border-none cursor-pointer" style={{ fontFamily: "'Lato', sans-serif" }}>
                       {s.cta.label}
                       <span className="flex items-center justify-center w-7 h-7 rounded-full bg-black/25 shrink-0">
                         <ArrowUpRight size={14} className="text-white" />
@@ -1038,10 +874,7 @@ const HeroSection = () => {
                     </button>
                   </Link>
                   <Link to={s.cta2.href} className="w-full sm:w-auto">
-                    <button
-                      className="inline-flex items-center justify-center w-full sm:w-auto border border-blue-400/60 text-blue-400 hover:bg-white/10 rounded-full font-bold text-sm px-8 py-2.5 transition-all active:scale-95 bg-transparent cursor-pointer"
-                      style={{ fontFamily: "'Lato', sans-serif" }}
-                    >
+                    <button className="inline-flex items-center justify-center w-full sm:w-auto border border-blue-400/60 text-blue-400 hover:bg-white/10 rounded-full font-bold text-sm px-8 py-2.5 transition-all active:scale-95 bg-transparent cursor-pointer" style={{ fontFamily: "'Lato', sans-serif" }}>
                       {s.cta2.label}
                     </button>
                   </Link>
@@ -1051,8 +884,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Prev / Next arrows — moved to bottom-right on mobile to avoid content overlap */}
-        <div className="absolute right-4 sm:right-10 bottom-48 sm:top-1/2 sm:-translate-y-1/2 z-30 flex flex-col gap-3">
+        <div className="absolute right-4 sm:right-10 bottom-36 sm:top-1/2 sm:-translate-y-1/2 z-30 flex flex-col gap-3">
           <button onClick={goPrev} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all cursor-pointer">
             <ChevronLeft size={16} className="text-white" />
           </button>
@@ -1061,15 +893,11 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Slide dots */}
-        <div className="absolute bottom-36 sm:bottom-44 left-6 sm:left-12 lg:left-20 z-20 flex items-center gap-2">
+        <div className="absolute bottom-24 sm:bottom-32 left-6 sm:left-12 lg:left-20 z-20 flex items-center gap-2">
           {heroSlides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => go(i, i > slide ? 1 : -1)}
+            <button key={i} onClick={() => go(i, i > slide ? 1 : -1)}
               className="rounded-full border-none cursor-pointer p-0 transition-all duration-300 h-2"
-              style={{ width: i === slide ? 28 : 8, background: i === slide ? "#3b82f6" : "rgba(255,255,255,0.4)" }}
-            />
+              style={{ width: i === slide ? 28 : 8, background: i === slide ? "#3b82f6" : "rgba(255,255,255,0.4)" }} />
           ))}
         </div>
 
@@ -1078,10 +906,6 @@ const HeroSection = () => {
     </section>
   );
 };
-
-/* ══════════════════════════════════════════════════════════════════════════
-   TESTIMONIALS — updated with job title, no photo
-══════════════════════════════════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════════════════════════════════════
    MAIN PAGE
@@ -1096,10 +920,8 @@ const Index = () => (
       <section className="pt-16 sm:pt-20 pb-16 sm:pb-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-[1200px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[72px] items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }}
-              className="relative flex justify-center lg:justify-start order-2 lg:order-1"
-            >
+            <motion.div initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }}
+              className="relative flex justify-center lg:justify-start order-2 lg:order-1">
               <div className="absolute -bottom-6 -left-6 w-full h-full rounded-3xl bg-blue-500/8 z-0" style={{ border: "1px solid rgba(59,130,246,0.12)" }} />
               <div className="absolute -top-3 -right-3 z-0 opacity-30"
                 style={{ backgroundImage: "radial-gradient(circle,#3b82f6 1px,transparent 1px)", backgroundSize: "14px 14px", width: 120, height: 120 }} />
@@ -1115,10 +937,8 @@ const Index = () => (
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}
-              className="order-1 lg:order-2"
-            >
+            <motion.div initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}
+              className="order-1 lg:order-2">
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block" />
                 <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.22em]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Welcome to BYTITUDE</span>
@@ -1141,10 +961,7 @@ const Index = () => (
                 ))}
               </ul>
               <Link to="/services" className="no-underline">
-                <button
-                  className="inline-flex items-center gap-3 bg-[#0a0f1e] hover:bg-blue-900 active:scale-95 transition-all text-white font-bold text-sm rounded-full pl-6 pr-2 py-2.5 border-none cursor-pointer"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
+                <button className="inline-flex items-center gap-3 bg-[#0a0f1e] hover:bg-blue-900 active:scale-95 transition-all text-white font-bold text-sm rounded-full pl-6 pr-2 py-2.5 border-none cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                   Read More
                   <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 shrink-0"><ArrowUpRight size={14} className="text-white" /></span>
                 </button>
@@ -1202,18 +1019,12 @@ const Index = () => (
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link to="/register" className="no-underline w-full sm:w-auto">
-              <button
-                className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-sm rounded-full px-8 py-3 transition-all border-none cursor-pointer"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <button className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-sm rounded-full px-8 py-3 transition-all border-none cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Request Training <ArrowUpRight size={15} />
               </button>
             </Link>
             <Link to="/contact" className="no-underline w-full sm:w-auto">
-              <button
-                className="inline-flex items-center justify-center w-full sm:w-auto border border-white/20 text-white hover:bg-white/10 rounded-full font-bold text-sm px-8 py-3 transition-all bg-transparent cursor-pointer"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <button className="inline-flex items-center justify-center w-full sm:w-auto border border-white/20 text-white hover:bg-white/10 rounded-full font-bold text-sm px-8 py-3 transition-all bg-transparent cursor-pointer" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Get Consultation
               </button>
             </Link>

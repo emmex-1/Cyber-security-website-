@@ -4,11 +4,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
-// import About from "./pages/About";
+import About from "./pages/About";
 import Courses from "./pages/Courses";
 import Pricing from "./pages/Pricing";
 import Training from "./pages/Training";
-// import Podcast from "./pages/Podcast";
+import Organization from "./pages/Organization";
 import Resources from "./pages/Resources";
 import Services from "./pages/Services";
 import Legal from "./pages/Legal";
@@ -29,11 +29,11 @@ const App = () => (
       <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/workshops" element={<Pricing />} />
           <Route path="/training" element={<Training />} />
-          {/* <Route path="/podcast" element={<Podcast />} /> */}
+          <Route path="/organization" element={<Organization />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
